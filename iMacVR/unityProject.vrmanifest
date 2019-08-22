@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.imacvr.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\LENOVO\\Desktop\\UCQ\\VII\\Proyecto\\iMacVR\\iMacVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "iMacVR [Testing]"
+        }
+      }
+    }
+  ]
+}
