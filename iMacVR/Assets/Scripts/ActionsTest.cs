@@ -5,9 +5,14 @@ using Valve.VR;
 
 public class ActionsTest : MonoBehaviour
 {
-    public SteamVR_Input_Sources handType; // 1
-    public SteamVR_Action_Boolean teleportAction; // 2
-    public SteamVR_Action_Boolean grabAction; // 3
+    //public SteamVR_Input_Sources handType; // 1
+    //public SteamVR_Action_Boolean teleportAction; // 2
+    //public SteamVR_Action_Boolean grabAction; // 3
+
+    public SteamVR_Input_Sources handType;
+    public SteamVR_Behaviour_Pose controllerPose;
+    public SteamVR_Action_Boolean grabAction;
+
 
     private GameObject collidingObject; // 1
     private GameObject objectInHand; // 2
@@ -16,15 +21,34 @@ public class ActionsTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetTeleportDown())
+        //if (GetTeleportDown())
+        //{
+        //    print("Teleport " + handType);
+        //}
+
+        //if (GetGrab())
+        //{
+        //    print("Grab " + handType);
+        //}
+
+        // 1
+        if (grabAction.GetLastStateDown(handType))
         {
-            print("Teleport " + handType);
+            if (collidingObject)
+            {
+                GrabObject();
+            }
         }
 
-        if (GetGrab())
+        // 2
+        if (grabAction.GetLastStateUp(handType))
         {
-            print("Grab " + handType);
+            if (objectInHand)
+            {
+                ReleaseObject();
+            }
         }
+
     }
 
     private void SetCollidingObject(Collider col)
@@ -38,15 +62,15 @@ public class ActionsTest : MonoBehaviour
         collidingObject = col.gameObject;
     }
 
-    public bool GetTeleportDown() // 1
-    {
-        return teleportAction.GetStateDown(handType);
-    }
+    //public bool GetTeleportDown() // 1
+    //{
+    //    return teleportAction.GetStateDown(handType);
+    //}
 
-    public bool GetGrab() // 2
-    {
-        return grabAction.GetState(handType);
-    }
+    //public bool GetGrab() // 2
+    //{
+    //    return grabAction.GetState(handType);
+    //}
 
     // 1
     public void OnTriggerEnter(Collider other)
