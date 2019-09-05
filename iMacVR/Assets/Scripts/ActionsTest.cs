@@ -3,88 +3,70 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
+/// <summary>
+/// Script only for testing purposes
+/// </summary>
 public class ActionsTest : MonoBehaviour
 {
-    //public SteamVR_Input_Sources handType; // 1
-    //public SteamVR_Action_Boolean teleportAction; // 2
-    //public SteamVR_Action_Boolean grabAction; // 3
-
     public SteamVR_Input_Sources handType;
+    //Variable to know the physics of the HTC Vive controller
     public SteamVR_Behaviour_Pose controllerPose;
+    //Used to know when the controller use the button assigned to grab something
     public SteamVR_Action_Boolean grabAction;
-
-
+    
+    //Object colliding with the HTC Vive controller
     private GameObject collidingObject; // 1
+    //Object grabbed
     private GameObject objectInHand; // 2
-
-
-    // Update is called once per frame
+    
     void Update()
     {
-        //if (GetTeleportDown())
-        //{
-        //    print("Teleport " + handType);
-        //}
-
-        //if (GetGrab())
-        //{
-        //    print("Grab " + handType);
-        //}
-
-        // 1
+        //Check every frame if the user press the trigger to grab something
         if (grabAction.GetLastStateDown(handType))
         {
+            //Review if the colliding object are not empty
             if (collidingObject)
             {
+                //If all is correct you can grab the object
                 GrabObject();
             }
         }
 
-        // 2
+        //Check every frame if the user release the trigger to grab something
         if (grabAction.GetLastStateUp(handType))
         {
+            //Review if the colliding object are not empty
             if (objectInHand)
             {
+                //Release object from the "hand"
                 ReleaseObject();
             }
         }
-
     }
 
+    /// <summary>
+    /// Used to set the object colliding with the HTC Vive controller (is necesary the object have a RigidBody)
+    /// </summary>
+    /// <param name="col"></param>
     private void SetCollidingObject(Collider col)
     {
-        // 1
         if (collidingObject || !col.GetComponent<Rigidbody>())
         {
             return;
         }
-        // 2
         collidingObject = col.gameObject;
     }
-
-    //public bool GetTeleportDown() // 1
-    //{
-    //    return teleportAction.GetStateDown(handType);
-    //}
-
-    //public bool GetGrab() // 2
-    //{
-    //    return grabAction.GetState(handType);
-    //}
-
-    // 1
+    
     public void OnTriggerEnter(Collider other)
     {
         SetCollidingObject(other);
     }
-
-    // 2
+    
     public void OnTriggerStay(Collider other)
     {
         SetCollidingObject(other);
     }
-
-    // 3
+    
     public void OnTriggerExit(Collider other)
     {
         if (!collidingObject)
@@ -95,17 +77,21 @@ public class ActionsTest : MonoBehaviour
         collidingObject = null;
     }
 
+    /// <summary>
+    /// Used to set the grabbed object in your hand
+    /// </summary>
     private void GrabObject()
     {
-        // 1
         objectInHand = collidingObject;
         collidingObject = null;
-        // 2
         var joint = AddFixedJoint();
         joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
     }
-
-    // 3
+    
+    /// <summary>
+    /// Create a FixedJoint for the movement of the object
+    /// </summary>
+    /// <returns></returns>
     private FixedJoint AddFixedJoint()
     {
         FixedJoint fx = gameObject.AddComponent<FixedJoint>();
@@ -114,20 +100,19 @@ public class ActionsTest : MonoBehaviour
         return fx;
     }
 
+    /// <summary>
+    /// Reset the "hand", delete the FixedJoint and set the velocity of you give it with the movement of the HTC Vive Controller
+    /// </summary>
     private void ReleaseObject()
     {
-        // 1
         if (GetComponent<FixedJoint>())
         {
-            // 2
             GetComponent<FixedJoint>().connectedBody = null;
             Destroy(GetComponent<FixedJoint>());
-            // 3
             objectInHand.GetComponent<Rigidbody>().velocity = controllerPose.GetVelocity();
             objectInHand.GetComponent<Rigidbody>().angularVelocity = controllerPose.GetAngularVelocity();
 
         }
-        // 4
         objectInHand = null;
     }
 
