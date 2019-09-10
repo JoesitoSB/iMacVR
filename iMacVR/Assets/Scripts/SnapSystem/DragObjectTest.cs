@@ -8,27 +8,47 @@ public class DragObjectTest : MonoBehaviour
     private float mZCoord;
     private float mZOffset;
 
-    public Transform snaptarget;
+    public GameObject snaptarget;
 
     private Rigidbody rb;
     public bool isPlaced;
+    
+
+    
+
+    //this function make references to the variables
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void Update()
     {
-        if( snaptarget)
+        //if the module has been place, it will maintain the posicion of the placeholder
+        if(isPlaced && snaptarget)
         {
-            transform.position = snaptarget.position;
+            transform.position = snaptarget.transform.position;
+            transform.rotation = snaptarget.transform.rotation;
+            rb.useGravity = false;
         }
     }
 
+    /// <summary>
+    /// This part will be replaced with the drag and drop Vr code
+    /// </summary>
     public void OnMouseDown()
     {
-        
-            mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-            mOffset = gameObject.transform.position - GetMouseWorldPos();
-            isPlaced = false;
+           
+        //this variable are for the if statement in the Update function and also enable gravity so the module falls down if the user dont grab it
+        isPlaced = false;
+        rb.useGravity = true;
+
+
+        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+        mOffset = gameObject.transform.position - GetMouseWorldPos();
         
     }
+    //This part will be replaced with the drag and drop Vr code
     public void OnMouseDrag()
     {
         //if (!snaptarget)
@@ -38,17 +58,19 @@ public class DragObjectTest : MonoBehaviour
         transform.position = GetMouseWorldPos() + mOffset;
 
     }
+    //This part will be replaced with the drag and drop Vr code
     public void OnMouseUp()
     {
         if(snaptarget)
         {
-            Debug.Log(transform.position);
-            transform.position = new Vector3(0,0 ,0 );
-            Debug.Log(transform.position);
-                
+            //This variables are for the if statement in the Update function and also disables gravity so the module wont fall down
             isPlaced = true;
+            rb.velocity = Vector3.zero;
+
         }
     }
+
+    //his part will be replaced with the drag and drop Vr code
     private Vector3 GetMouseWorldPos()
     {
         Vector3 mousePoint = Input.mousePosition;
@@ -56,6 +78,7 @@ public class DragObjectTest : MonoBehaviour
         mousePoint.z = mZCoord;
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
+    //his part will be replaced with the drag and drop Vr code
     private float GetDistance()
     {
         if(Input.GetAxis("Mouse ScrollWheel") > 0)//forward
@@ -72,13 +95,15 @@ public class DragObjectTest : MonoBehaviour
         }       
     }
 
+    //asigns the placeholder gameobject when enter the trigger
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "SnapTarget")
         {
-            snaptarget = gameObject.transform;
+            snaptarget = other.gameObject;
         }
     }
+    //sets the placeholder gameobject to null when leaving the trigger
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "SnapTarget")
@@ -88,5 +113,5 @@ public class DragObjectTest : MonoBehaviour
     }
 
 
-
+    
 }
