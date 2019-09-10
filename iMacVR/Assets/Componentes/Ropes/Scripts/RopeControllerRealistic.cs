@@ -105,7 +105,7 @@ public class RopeControllerRealistic : MonoBehaviour
             positions[i] = allRopeSections[i].pos;
         }
 
-        lineRenderer.numPositions = positions.Length;
+        lineRenderer.positionCount = positions.Length;
 
         lineRenderer.SetPositions(positions);
     }
