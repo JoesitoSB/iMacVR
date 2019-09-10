@@ -21,17 +21,7 @@ public class ActionsTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (GetTeleportDown())
-        //{
-        //    print("Teleport " + handType);
-        //}
-
-        //if (GetGrab())
-        //{
-        //    print("Grab " + handType);
-        //}
-
-        // 1
+        //Check if the grab action is activated
         if (grabAction.GetLastStateDown(handType))
         {
             if (collidingObject)
@@ -40,7 +30,7 @@ public class ActionsTest : MonoBehaviour
             }
         }
 
-        // 2
+        //Check if the grab action is realesed
         if (grabAction.GetLastStateUp(handType))
         {
             if (objectInHand)
@@ -53,7 +43,6 @@ public class ActionsTest : MonoBehaviour
 
     private void SetCollidingObject(Collider col)
     {
-        // 1
         if (collidingObject || !col.GetComponent<Rigidbody>())
         {
             return;
@@ -61,6 +50,16 @@ public class ActionsTest : MonoBehaviour
         // 2
         collidingObject = col.gameObject;
     }
+
+    //private void SetCollidingObject(Rigidbody _rb)
+    //{
+    //    if (collidingObject || !col.GetComponent<Rigidbody>())
+    //    {
+    //        return;
+    //    }
+    //    // 2
+    //    collidingObject = col.gameObject;
+    //}
 
     //public bool GetTeleportDown() // 1
     //{
@@ -97,7 +96,7 @@ public class ActionsTest : MonoBehaviour
 
     private void GrabObject()
     {
-        // 1
+        //Set the object in hand and clear the reference of the colliding  ibject
         objectInHand = collidingObject;
         collidingObject = null;
         // 2
@@ -116,18 +115,19 @@ public class ActionsTest : MonoBehaviour
 
     private void ReleaseObject()
     {
-        // 1
-        if (GetComponent<FixedJoint>())
+        var fixedJoint = GetComponent<FixedJoint>();
+        var rb = GetComponent<Rigidbody>();
+        if (fixedJoint)
         {
-            // 2
-            GetComponent<FixedJoint>().connectedBody = null;
-            Destroy(GetComponent<FixedJoint>());
-            // 3
-            objectInHand.GetComponent<Rigidbody>().velocity = controllerPose.GetVelocity();
-            objectInHand.GetComponent<Rigidbody>().angularVelocity = controllerPose.GetAngularVelocity();
+            //Destroy the fixed joint
+            fixedJoint.connectedBody = null;
+            Destroy(fixedJoint);
+            //Add the velocity of the hand
+            rb.velocity = controllerPose.GetVelocity();
+            rb.angularVelocity = controllerPose.GetAngularVelocity();
 
         }
-        // 4
+        //Delete the object reference in the hand
         objectInHand = null;
     }
 
