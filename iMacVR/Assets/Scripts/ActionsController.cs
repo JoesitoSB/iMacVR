@@ -3,19 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-public class ActionsTest : MonoBehaviour
+public class ActionsController : MonoBehaviour
 {
-    //public SteamVR_Input_Sources handType; // 1
-    //public SteamVR_Action_Boolean teleportAction; // 2
-    //public SteamVR_Action_Boolean grabAction; // 3
-
     public SteamVR_Input_Sources handType;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean grabAction;
 
-
-    private GameObject collidingObject; // 1
-    private GameObject objectInHand; // 2
+    private GameObject collidingObject;
+    private GameObject objectInHand;
 
 
     // Update is called once per frame
@@ -38,73 +33,45 @@ public class ActionsTest : MonoBehaviour
                 ReleaseObject();
             }
         }
-
     }
 
-    private void SetCollidingObject(Collider col)
+    private void SetCollidingObject(GameObject _collidingObject)
     {
-        if (collidingObject || !col.GetComponent<Rigidbody>())
+        if (collidingObject || !_collidingObject.GetComponent<Rigidbody>())//Check if already exist a collidingObject or doesn't contains a Rigidbody
         {
             return;
         }
-        // 2
-        collidingObject = col.gameObject;
+        collidingObject = _collidingObject;
     }
 
-    //private void SetCollidingObject(Rigidbody _rb)
-    //{
-    //    if (collidingObject || !col.GetComponent<Rigidbody>())
-    //    {
-    //        return;
-    //    }
-    //    // 2
-    //    collidingObject = col.gameObject;
-    //}
-
-    //public bool GetTeleportDown() // 1
-    //{
-    //    return teleportAction.GetStateDown(handType);
-    //}
-
-    //public bool GetGrab() // 2
-    //{
-    //    return grabAction.GetState(handType);
-    //}
-
-    // 1
     public void OnTriggerEnter(Collider other)
     {
-        SetCollidingObject(other);
+        SetCollidingObject(other.gameObject);
     }
 
-    // 2
     public void OnTriggerStay(Collider other)
     {
-        SetCollidingObject(other);
+        SetCollidingObject(other.gameObject);
     }
 
-    // 3
     public void OnTriggerExit(Collider other)
     {
-        if (!collidingObject)
+        if (!collidingObject)//Review if the collidingObject is empty to don't do anything
         {
             return;
         }
-
         collidingObject = null;
     }
 
     private void GrabObject()
     {
-        //Set the object in hand and clear the reference of the colliding  ibject
+        //Set the object in hand and clear the reference of the colliding object
         objectInHand = collidingObject;
         collidingObject = null;
-        // 2
         var joint = AddFixedJoint();
         joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
     }
 
-    // 3
     private FixedJoint AddFixedJoint()
     {
         FixedJoint fx = gameObject.AddComponent<FixedJoint>();
@@ -130,5 +97,4 @@ public class ActionsTest : MonoBehaviour
         //Delete the object reference in the hand
         objectInHand = null;
     }
-
 }
