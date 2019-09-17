@@ -11,15 +11,11 @@ public class DragObjectTest : MonoBehaviour
     public GameObject snaptarget;
 
     private Rigidbody rb;
-    public bool isPlaced;
+    public bool isPlaced;    
     
-
-    
-
-    //this function make references to the variables
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();//Get the Rigidbody component and save it in the variable "rb"
     }
 
     private void Update()
@@ -36,32 +32,42 @@ public class DragObjectTest : MonoBehaviour
     /// <summary>
     /// This part will be replaced with the drag and drop Vr code
     /// </summary>
-    public void OnMouseDown()
-    {
-           
-        //this variable are for the if statement in the Update function and also enable gravity so the module falls down if the user dont grab it
-        isPlaced = false;
-        rb.useGravity = true;
+    //public void OnMouseDown()
+    //{
+
+    //    //this variable are for the if statement in the Update function and also enable gravity so the module falls down if the user dont grab it
+    //    isPlaced = false;
+    //    rb.useGravity = true;
 
 
-        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        mOffset = gameObject.transform.position - GetMouseWorldPos();
-        
-    }
-    //This part will be replaced with the drag and drop Vr code
-    public void OnMouseDrag()
-    {
-        //if (!snaptarget)
-        //{
-        //    transform.position = GetMouseWorldPos() + mOffset;
-        //}
-        transform.position = GetMouseWorldPos() + mOffset;
+    //    mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+    //    mOffset = gameObject.transform.position - GetMouseWorldPos();
 
-    }
-    //This part will be replaced with the drag and drop Vr code
-    public void OnMouseUp()
+    //}
+    ////This part will be replaced with the drag and drop Vr code
+    //public void OnMouseDrag()
+    //{
+    //    //if (!snaptarget)
+    //    //{
+    //    //    transform.position = GetMouseWorldPos() + mOffset;
+    //    //}
+    //    transform.position = GetMouseWorldPos() + mOffset;
+
+    //}
+    ////This part will be replaced with the drag and drop Vr code
+    
+    public void ReleaseObject()
     {
         if(snaptarget)
+        {
+            isPlaced = true;
+            rb.velocity = Vector3.zero;
+        }
+    }
+
+    public void OnMouseUp()
+    {
+        if (snaptarget)
         {
             //This variables are for the if statement in the Update function and also disables gravity so the module wont fall down
             isPlaced = true;
@@ -71,28 +77,39 @@ public class DragObjectTest : MonoBehaviour
     }
 
     //his part will be replaced with the drag and drop Vr code
-    private Vector3 GetMouseWorldPos()
-    {
-        Vector3 mousePoint = Input.mousePosition;
-        mZCoord += GetDistance();
-        mousePoint.z = mZCoord;
-        return Camera.main.ScreenToWorldPoint(mousePoint);
-    }
+    //private Vector3 GetMouseWorldPos()
+    //{
+    //    Vector3 mousePoint = Input.mousePosition;
+    //    mZCoord += GetDistance();
+    //    mousePoint.z = mZCoord;
+    //    return Camera.main.ScreenToWorldPoint(mousePoint);
+    //}
     //his part will be replaced with the drag and drop Vr code
-    private float GetDistance()
+    //private float GetDistance()
+    //{
+    //    if(Input.GetAxis("Mouse ScrollWheel") > 0)//forward
+    //    {
+    //        return .2f;
+    //    }
+    //    else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+    //    {
+    //        return -.2f;
+    //    }
+    //    else
+    //    {
+    //        return 0;
+    //    }       
+    //}
+
+    public void CheckIfIsPlaced()
     {
-        if(Input.GetAxis("Mouse ScrollWheel") > 0)//forward
+        if(snaptarget)
         {
-            return .2f;
+            rb.velocity = Vector3.zero;
+            transform.position = snaptarget.transform.position;
+            transform.rotation = snaptarget.transform.rotation;
+            rb.useGravity = false;
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            return -.2f;
-        }
-        else
-        {
-            return 0;
-        }       
     }
 
     //asigns the placeholder gameobject when enter the trigger

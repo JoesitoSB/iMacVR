@@ -12,6 +12,8 @@ public class ActionsController : MonoBehaviour
     private GameObject collidingObject;
     private GameObject objectInHand;
 
+    private SnapObjectController snapObjectController;
+
 
     // Update is called once per frame
     void Update()
@@ -31,6 +33,7 @@ public class ActionsController : MonoBehaviour
             if (objectInHand)
             {
                 ReleaseObject();
+                if (snapObjectController) snapObjectController.ReleaseObject();
             }
         }
     }
@@ -47,6 +50,8 @@ public class ActionsController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         SetCollidingObject(other.gameObject);
+
+        snapObjectController = other.gameObject.GetComponent<SnapObjectController>();
     }
 
     public void OnTriggerStay(Collider other)
