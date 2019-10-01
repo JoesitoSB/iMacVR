@@ -9,12 +9,15 @@ public class PlaceToSnapController : MonoBehaviour
     [SerializeField]
     private TypeSnapableObject typeCanSnap;
 
-    public void Snap(SnapableObject _objectToPlace)
+    public void Snap(SnapableObjectController _objectToPlace)
     {
         
         _objectToPlace.gameObject.transform.position = transform.position;
-        //_objectToPlace.useGravity = false;{
-
         //Verificar que sean del mismo tipo y cancelar gravedad
+        if(_objectToPlace.GetType() == typeCanSnap)
+        {
+            _objectToPlace.GetRigidbody().useGravity = false;
+
+        }
     }
 }
