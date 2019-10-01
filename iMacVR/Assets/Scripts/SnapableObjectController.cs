@@ -60,6 +60,7 @@ public class SnapableObjectController : MonoBehaviour
     {
         if(placeToSnap.gameObject == other.gameObject)
         {
+            placeToSnap.Drop();
             placeToSnap = null;
             isInPlace = false;
         }

@@ -12,8 +12,6 @@ public class ActionsController : MonoBehaviour
     private GameObject collidingObject;
     private GameObject objectInHand;
 
-    private SnapObjectController snapObjectController;
-
 
     // Update is called once per frame
     void Update()
@@ -33,8 +31,6 @@ public class ActionsController : MonoBehaviour
             if (objectInHand)
             {
                 ReleaseObject();
-                //tengo la sospecha de que el error es por que esta linea de abajo solo se llama una sola vez cuando se 
-                if (snapObjectController) snapObjectController.ReleaseObject();
             }
         }
     }
@@ -51,8 +47,6 @@ public class ActionsController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         SetCollidingObject(other.gameObject);
-
-        snapObjectController = other.gameObject.GetComponent<SnapObjectController>();
     }
 
     public void OnTriggerStay(Collider other)
