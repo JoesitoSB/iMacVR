@@ -12,7 +12,7 @@ public class PlaceToSnapController : MonoBehaviour
 
     public void Snap(SnapableObjectController _objectToPlace)
     {
-        if(!objectPlaced)
+        if(!objectPlaced && typeCanSnap == _objectToPlace.GetType())//Check is is not set a objectPlaced and if it is of the same type
         {
             objectPlaced = _objectToPlace;
             //Verificar que sean del mismo tipo y cancelar gravedad
@@ -29,6 +29,7 @@ public class PlaceToSnapController : MonoBehaviour
     {
         if(objectPlaced)
         {
+            objectPlaced = null;
             objectPlaced.GetRigidbody().useGravity = true;
         }
     }
