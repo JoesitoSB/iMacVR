@@ -19,6 +19,8 @@ public class PlaceToSnapController : MonoBehaviour
             if(objectPlaced.GetType() == typeCanSnap)
             {
                 objectPlaced.GetRigidbody().useGravity = false;
+                objectPlaced.GetRigidbody().velocity = new Vector3(0, 0, 0);
+                objectPlaced.GetRigidbody().constraints = RigidbodyConstraints.FreezeAll;
                 objectPlaced.gameObject.transform.position = transform.position;
                 objectPlaced.gameObject.transform.rotation = transform.rotation;
             }
@@ -31,6 +33,7 @@ public class PlaceToSnapController : MonoBehaviour
         {
             objectPlaced = null;
             objectPlaced.GetRigidbody().useGravity = true;
+            objectPlaced.GetRigidbody().constraints = RigidbodyConstraints.None;
         }
     }
 }

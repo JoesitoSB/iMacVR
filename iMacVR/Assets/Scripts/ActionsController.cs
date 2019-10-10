@@ -82,21 +82,6 @@ public class ActionsController : MonoBehaviour
 
     private void ReleaseObject()
     {
-        //var fixedJoint = GetComponent<FixedJoint>();
-        //var rb = GetComponent<Rigidbody>();
-        //if (fixedJoint)
-        //{
-        //    //Destroy the fixed joint
-        //    fixedJoint.connectedBody = null;
-        //    Destroy(fixedJoint);
-        //    //Add the velocity of the hand
-        //    rb.velocity = controllerPose.GetVelocity();
-        //    rb.angularVelocity = controllerPose.GetAngularVelocity();
-
-        //}
-        ////Delete the object reference in the hand
-        //objectInHand = null;
-
         var fixedJoint = GetComponent<FixedJoint>();
         var objectInHandRB = objectInHand.GetComponent<Rigidbody>();
         // 1
