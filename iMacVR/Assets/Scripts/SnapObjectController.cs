@@ -52,12 +52,25 @@ public class SnapObjectController : MonoBehaviour
             snaptarget = other.gameObject;
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == SNAPTARGETTAG)
         {//Sets the placeholder gameobject to null when leaving the trigger
             snaptarget = null;
+            rb.useGravity = true;
         }
     }
+
+    //[SerializeField]
+    //private GameObject snaptarget;
+    //private Rigidbody rb;
+    //private bool isPlaced;
+
+    //private const string SNAPTARGETTAG = "SnapTarget";
+
+    //private void Start()
+    //{
+    //    rb = GetComponent<Rigidbody>();//Get the Rigidbody component and save it in the variable "rb"
+    //}
 }

@@ -33,6 +33,7 @@ public class ActionsController : MonoBehaviour
             if (objectInHand)
             {
                 ReleaseObject();
+                //tengo la sospecha de que el error es por que esta linea de abajo solo se llama una sola vez cuando se 
                 if (snapObjectController) snapObjectController.ReleaseObject();
             }
         }
