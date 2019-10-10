@@ -21,12 +21,6 @@ public class SnapableObjectController : MonoBehaviour
         if (!rb) rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public TypeSnapableObject GetType()
     {
         return type;
@@ -40,7 +34,7 @@ public class SnapableObjectController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         placeToSnap = other.GetComponent<PlaceToSnapController>();
-        if(placeToSnap)
+        if(placeToSnap && !isInPlace)
         {
             isInPlace = true;
             placeToSnap.Snap(this);
@@ -50,18 +44,20 @@ public class SnapableObjectController : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         placeToSnap = other.GetComponent<PlaceToSnapController>();
-        if (placeToSnap)
+        if (placeToSnap && !isInPlace)
         {
             isInPlace = true;
+            placeToSnap.Snap(this);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(placeToSnap.gameObject == other.gameObject)
+        if(placeToSnap.gameObject == other.gameObject && isInPlace)
         {
-            placeToSnap = null;
             isInPlace = false;
+            placeToSnap = null;
+            placeToSnap.Drop();
         }
     }
 }

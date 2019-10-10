@@ -8,16 +8,29 @@ public class PlaceToSnapController : MonoBehaviour
 {
     [SerializeField]
     private TypeSnapableObject typeCanSnap;
+    private SnapableObjectController objectPlaced;
 
     public void Snap(SnapableObjectController _objectToPlace)
     {
-        
-        _objectToPlace.gameObject.transform.position = transform.position;
-        //Verificar que sean del mismo tipo y cancelar gravedad
-        if(_objectToPlace.GetType() == typeCanSnap)
+        if(!objectPlaced && typeCanSnap == _objectToPlace.GetType())//Check is is not set a objectPlaced and if it is of the same type
         {
-            _objectToPlace.GetRigidbody().useGravity = false;
+            objectPlaced = _objectToPlace;
+            //Verificar que sean del mismo tipo y cancelar gravedad
+            if(objectPlaced.GetType() == typeCanSnap)
+            {
+                objectPlaced.GetRigidbody().useGravity = false;
+                objectPlaced.gameObject.transform.position = transform.position;
+                objectPlaced.gameObject.transform.rotation = transform.rotation;
+            }
+        }
+    }
 
+    public void Drop()
+    {
+        if(objectPlaced)
+        {
+            objectPlaced = null;
+            objectPlaced.GetRigidbody().useGravity = true;
         }
     }
 }

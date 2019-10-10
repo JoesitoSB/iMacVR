@@ -12,8 +12,6 @@ public class ActionsController : MonoBehaviour
     private GameObject collidingObject;
     private GameObject objectInHand;
 
-    private SnapObjectController snapObjectController;
-
 
     // Update is called once per frame
     void Update()
@@ -33,8 +31,6 @@ public class ActionsController : MonoBehaviour
             if (objectInHand)
             {
                 ReleaseObject();
-                //tengo la sospecha de que el error es por que esta linea de abajo solo se llama una sola vez cuando se 
-                if (snapObjectController) snapObjectController.ReleaseObject();
             }
         }
     }
@@ -51,8 +47,6 @@ public class ActionsController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         SetCollidingObject(other.gameObject);
-
-        snapObjectController = other.gameObject.GetComponent<SnapObjectController>();
     }
 
     public void OnTriggerStay(Collider other)
@@ -88,19 +82,35 @@ public class ActionsController : MonoBehaviour
 
     private void ReleaseObject()
     {
+        //var fixedJoint = GetComponent<FixedJoint>();
+        //var rb = GetComponent<Rigidbody>();
+        //if (fixedJoint)
+        //{
+        //    //Destroy the fixed joint
+        //    fixedJoint.connectedBody = null;
+        //    Destroy(fixedJoint);
+        //    //Add the velocity of the hand
+        //    rb.velocity = controllerPose.GetVelocity();
+        //    rb.angularVelocity = controllerPose.GetAngularVelocity();
+
+        //}
+        ////Delete the object reference in the hand
+        //objectInHand = null;
+
         var fixedJoint = GetComponent<FixedJoint>();
-        var rb = GetComponent<Rigidbody>();
+        var objectInHandRB = objectInHand.GetComponent<Rigidbody>();
+        // 1
         if (fixedJoint)
         {
-            //Destroy the fixed joint
+            // 2
             fixedJoint.connectedBody = null;
             Destroy(fixedJoint);
-            //Add the velocity of the hand
-            rb.velocity = controllerPose.GetVelocity();
-            rb.angularVelocity = controllerPose.GetAngularVelocity();
+            // 3
+            objectInHandRB.velocity = controllerPose.GetVelocity();
+            objectInHandRB.angularVelocity = controllerPose.GetAngularVelocity();
 
         }
-        //Delete the object reference in the hand
+        // 4
         objectInHand = null;
     }
 }
