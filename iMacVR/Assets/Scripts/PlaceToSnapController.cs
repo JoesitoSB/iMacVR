@@ -31,9 +31,15 @@ public class PlaceToSnapController : MonoBehaviour
     {
         if(objectPlaced)
         {
-            objectPlaced = null;
-            objectPlaced.GetRigidbody().useGravity = true;
+            Debug.Log("Dropped object");
             objectPlaced.GetRigidbody().constraints = RigidbodyConstraints.None;
+            objectPlaced.GetRigidbody().useGravity = true;
+            objectPlaced = null;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Object exit; " + other.gameObject.name);
     }
 }

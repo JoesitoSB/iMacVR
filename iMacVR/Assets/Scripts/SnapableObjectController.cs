@@ -21,6 +21,14 @@ public class SnapableObjectController : MonoBehaviour
         if (!rb) rb = GetComponent<Rigidbody>();
     }
 
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log("Is in place status " + isInPlace);
+        }
+    }
+
     public TypeSnapableObject GetType()
     {
         return type;
@@ -31,33 +39,63 @@ public class SnapableObjectController : MonoBehaviour
         return rb;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Snap(PlaceToSnapController _placeToSnap)
     {
-        placeToSnap = other.GetComponent<PlaceToSnapController>();
-        if(placeToSnap && !isInPlace)
+        placeToSnap = _placeToSnap;
+        if (!isInPlace)
         {
             isInPlace = true;
             placeToSnap.Snap(this);
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    //TODO Añadir metodo para que los objetos snapeables les quite el poder a los controles de moverlos en cuanto se snapean. O sea que los suelte en el instante que se snapean
+    private void OnTriggerEnter(Collider other)
     {
-        placeToSnap = other.GetComponent<PlaceToSnapController>();
-        if (placeToSnap && !isInPlace)
+        var _placeToSnap = other.GetComponent<PlaceToSnapController>();
+        if(_placeToSnap)
         {
-            isInPlace = true;
-            placeToSnap.Snap(this);
+            Snap(_placeToSnap);
         }
+        else
+        {
+            rb.constraints = RigidbodyConstraints.None;
+        }
+    }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    var _placeToSnap = other.GetComponent<PlaceToSnapController>();
+    //    if(_placeToSnap)
+    //    {
+    //        Snap(_placeToSnap);
+    //    }
+    //    else
+    //    {
+    //        rb.constraints = RigidbodyConstraints.None;
+    //    }
+    //}
+
+    public void Drop()
+    {
+        if(placeToSnap)
+        {
+            placeToSnap.Drop();//This method control the constrains
+            placeToSnap = null;
+        }
+        isInPlace = false;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(placeToSnap.gameObject == other.gameObject && isInPlace)
+        if(placeToSnap)
         {
-            isInPlace = false;
-            placeToSnap = null;
-            placeToSnap.Drop();
+            if(placeToSnap.gameObject == other.gameObject && isInPlace)
+            {
+                placeToSnap.Drop();
+                isInPlace = false;
+                placeToSnap = null;
+            }
         }
     }
 }
