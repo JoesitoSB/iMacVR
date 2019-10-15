@@ -80,7 +80,7 @@ public class ActionsController : MonoBehaviour
         return fx;
     }
 
-    private void ReleaseObject()
+    public void ReleaseObject()
     {
         var fixedJoint = GetComponent<FixedJoint>();
         var objectInHandRB = objectInHand.GetComponent<Rigidbody>();
