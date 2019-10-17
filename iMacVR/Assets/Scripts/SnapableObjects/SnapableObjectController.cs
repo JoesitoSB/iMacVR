@@ -6,8 +6,8 @@ using Enums;
 [RequireComponent(typeof(Collision), typeof(Rigidbody))]
 public class SnapableObjectController : MonoBehaviour
 {
-    [SerializeField]
-    private RoboRyanTron.Unite2017.Events.GameEvent ReleaseObjectInHand;
+    //[SerializeField]
+    //private RoboRyanTron.Unite2017.Events.GameEvent ReleaseObjectInHand;
     [SerializeField]
     private TypeSnapableObject type;
     [SerializeField]
@@ -41,46 +41,14 @@ public class SnapableObjectController : MonoBehaviour
         return rb;
     }
 
-    public void Snap(PlaceToSnapController _placeToSnap)
+    public void Snap()
     {
-        placeToSnap = _placeToSnap;
-        if (!isInPlace)
+        if (!isInPlace && placeToSnap)
         {
             isInPlace = true;
             placeToSnap.Snap(this);
-            if(ReleaseObjectInHand != null)
-            {
-                ReleaseObjectInHand.Raise();
-            }
         }
     }
-
-    //TODO Añadir metodo para que los objetos snapeables les quite el poder a los controles de moverlos en cuanto se snapean. O sea que los suelte en el instante que se snapean
-    private void OnTriggerEnter(Collider other)
-    {
-        var _placeToSnap = other.GetComponent<PlaceToSnapController>();
-        if(_placeToSnap)
-        {
-            Snap(_placeToSnap);
-        }
-        else
-        {
-            rb.constraints = RigidbodyConstraints.None;
-        }
-    }
-
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    var _placeToSnap = other.GetComponent<PlaceToSnapController>();
-    //    if(_placeToSnap)
-    //    {
-    //        Snap(_placeToSnap);
-    //    }
-    //    else
-    //    {
-    //        rb.constraints = RigidbodyConstraints.None;
-    //    }
-    //}
 
     public void Drop()
     {
@@ -92,16 +60,42 @@ public class SnapableObjectController : MonoBehaviour
         isInPlace = false;
     }
 
+    //TODO Añadir metodo para que los objetos snapeables les quite el poder a los controles de moverlos en cuanto se snapean. O sea que los suelte en el instante que se snapean
+    private void OnTriggerEnter(Collider other)
+    {
+        var _placeToSnap = other.GetComponent<PlaceToSnapController>();
+        if(_placeToSnap)
+        {
+            placeToSnap = _placeToSnap;
+            //Snap();
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints.None;
+        }
+    }
+
+
     private void OnTriggerExit(Collider other)
     {
-        if(placeToSnap)
+        var place = other.GetComponent<PlaceToSnapController>();
+        if (place)
         {
-            if(placeToSnap.gameObject == other.gameObject && isInPlace)
+            if (place.GetType() == type)
             {
                 placeToSnap.Drop();
                 isInPlace = false;
                 placeToSnap = null;
             }
         }
+        //if (placeToSnap)
+        //{
+        //    if (placeToSnap.gameObject == other.gameObject)
+        //    {
+        //        placeToSnap.Drop();
+        //        isInPlace = false;
+        //        placeToSnap = null;
+        //    }
+        //}
     }
 }

@@ -10,6 +10,11 @@ public class PlaceToSnapController : MonoBehaviour
     private TypeSnapableObject typeCanSnap;
     private SnapableObjectController objectPlaced;
 
+    public TypeSnapableObject GetType()
+    {
+        return typeCanSnap;
+    }
+
     public void Snap(SnapableObjectController _objectToPlace)
     {
         if(!objectPlaced && typeCanSnap == _objectToPlace.GetType())//Check is is not set a objectPlaced and if it is of the same type
