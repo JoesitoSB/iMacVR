@@ -7,6 +7,8 @@ using Enums;
 public class SnapableObjectController : MonoBehaviour
 {
     [SerializeField]
+    private RoboRyanTron.Unite2017.Events.GameEvent ReleaseObjectInHand;
+    [SerializeField]
     private TypeSnapableObject type;
     [SerializeField]
     private PlaceToSnapController placeToSnap;
@@ -46,6 +48,10 @@ public class SnapableObjectController : MonoBehaviour
         {
             isInPlace = true;
             placeToSnap.Snap(this);
+            if(ReleaseObjectInHand != null)
+            {
+                ReleaseObjectInHand.Raise();
+            }
         }
     }
 
