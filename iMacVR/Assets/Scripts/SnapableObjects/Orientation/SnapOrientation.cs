@@ -5,12 +5,9 @@ using Enums;
 
 public class SnapOrientation : MonoBehaviour
 {
-    [HideInInspector]
-    public bool orientation1;
-    [HideInInspector]
-    public bool orientation2;
-    [HideInInspector]
-    public bool orientation3;
+    private bool orientation1;
+    private bool orientation2;
+    private bool orientation3;
 
     private bool isOriented;
 

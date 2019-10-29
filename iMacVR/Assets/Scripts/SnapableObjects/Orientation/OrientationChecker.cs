@@ -22,6 +22,18 @@ public class OrientationChecker : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.GetComponent<OrientationIdentifier>())
+        {
+            if (other.gameObject.GetComponent<OrientationIdentifier>().getIdentifier() == testOr)
+            {
+                snapOr.SetIdentifierToTrue(testOr);
+            }
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.GetComponent<OrientationIdentifier>())
