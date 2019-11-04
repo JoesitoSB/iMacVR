@@ -11,6 +11,7 @@ public class ActionsController : MonoBehaviour
     public SteamVR_Input_Sources handType;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean grabAction;
+    public SteamVR_Action_Boolean grabActionWithGrip;
 
     private GameObject collidingObject;
     private GameObject objectInHand;
@@ -19,6 +20,8 @@ public class ActionsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
         //Check if the grab action is activated
         if (grabAction.GetLastStateDown(handType))
         {
