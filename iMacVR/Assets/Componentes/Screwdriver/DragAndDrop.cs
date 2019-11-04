@@ -39,5 +39,30 @@ public class DragAndDrop : MonoBehaviour
             Vector3 rayPoint = ray.GetPoint(distance);
             transform.position = rayPoint;
         }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += Vector3.up * .01f;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += Vector3.down * .01f;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position += Vector3.forward * .01f;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.position += Vector3.back * .01f;
+        }
+        if (Input.GetKey(KeyCode.C))
+        {
+            transform.position += Vector3.right * .01f;
+        }
+        if (Input.GetKey(KeyCode.Z))
+        {
+            transform.position += Vector3.left * .01f;
+        }
     }
 }

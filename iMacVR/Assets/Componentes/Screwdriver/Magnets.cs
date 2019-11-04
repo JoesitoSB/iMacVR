@@ -1,20 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public class Magnets : MonoBehaviour
 {
-    public GameObject[] MagnetTip;
-    private bool attached = false;
+    public GameObject[] MagnetScrew;
+    
+    public bool attached = false;
     private float[] Distance;
-    public float SnapTipDistance;
-    private GameObject NearGameObject;
+    public float SnapScrewDistance;
+    [SerializeField]
+    public GameObject NearGameObject = null;
+    private Vector3 fromVector;
+    private Vector3 toVector;
+    public float speed = 0.1f;
+    private float Dist = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Distance = new float[MagnetTip.Length];
+        MagnetScrew = GameObject.FindGameObjectsWithTag("Screw");
+        Distance = new float[MagnetScrew.Length];
     }
 
     // Update is called once per frame
@@ -22,13 +30,65 @@ public class Magnets : MonoBehaviour
     {
         if (!attached)
         {
-            NearGameObject = GetTipNearest(MagnetTip);
+            NearGameObject = GetTipNearest(MagnetScrew);
+        }
+        
+        Dist = Vector3.Distance(NearGameObject.transform.position, transform.position);
+        //Debug.Log(Dist);
+        //Debug.Log(attached);
+        if (Dist <= SnapScrewDistance)
+        {
+            if (!attached && !NearGameObject.GetComponent<Tip>().Screw)
+            {
+                NearGameObject.transform.position = transform.position;
+                NearGameObject.transform.parent = transform;
+                NearGameObject.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                
+                toVector = new Vector3(transform.parent.localEulerAngles.x, transform.parent.localEulerAngles.y,
+                    transform.parent.localEulerAngles.z);
+                //toVector -= new Vector3(180, 0, 0);
+                fromVector = NearGameObject.transform.eulerAngles;
+                //Debug.Log("to: " + toVector);
+                //Debug.Log("from: " + fromVector);
+
+                //NearGameObject
+
+                fromVector = new Vector3(
+                    Mathf.LerpAngle(fromVector.x, toVector.x, Time.deltaTime * speed),
+                    Mathf.LerpAngle(fromVector.y, toVector.y, Time.deltaTime * speed),
+                    Mathf.LerpAngle(fromVector.z, toVector.z, Time.deltaTime * speed));
+                NearGameObject.transform.eulerAngles = fromVector;
+
+                if (fromVector.x < toVector.x + 0.09f && fromVector.x > toVector.x - 0.09f &&
+                    fromVector.y < toVector.y + 0.09f && fromVector.y > toVector.y - 0.09f &&
+                    fromVector.z < toVector.z + 0.09f && fromVector.z > toVector.z - 0.09f)
+                {
+                    attached = true;
+                }
+
+                
+            }
+
+            //if (attached)
+            //{
+            //    NearGameObject.transform.position = transform.position;
+            //}
+        }
+        else if(Dist > SnapScrewDistance && attached)
+        {
+            NearGameObject.transform.parent = null;
+            NearGameObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            attached = false;
         }
 
-        float Dist = Vector3.Distance(NearGameObject.transform.position, transform.position);
-        if (Dist <= SnapTipDistance)
+        //quitar este if despues
+        if (transform.parent.gameObject.GetComponent<DragAndDrop>().dragging)
         {
-
+            transform.parent.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        }
+        else
+        {
+            transform.parent.gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 
@@ -39,6 +99,10 @@ public class Magnets : MonoBehaviour
         GameObject NearObject = null;
         for (int i = 0; i < magnets.Length; i++)
         {
+            if (i == 0)
+            {
+                NearObject = magnets[i];
+            }
             ActualDistance = Vector3.Distance(magnets[i].transform.position, transform.position);
             if (ActualDistance < LastDistance)
             {
