@@ -18,6 +18,9 @@ public class AudioManager : MonoBehaviour
     private int TiempoActualDePista;
     private int Segundos;
     private int Minutos;
+    public Image BotonPlayPause;
+    public Sprite SpritePausa;
+    public Sprite SpritePlay;
 
     // Start is called before the first frame update
     void Start()
@@ -83,11 +86,13 @@ public class AudioManager : MonoBehaviour
         {
             StopCoroutine("EsperarTerminarMusica");
             source.Pause();
+            BotonPlayPause.sprite = SpritePausa;
         }
         else
         {
             //StartCoroutine("EsperarTerminarMusica");
             source.Play();
+            BotonPlayPause.sprite = SpritePlay;
         }
     }
     
