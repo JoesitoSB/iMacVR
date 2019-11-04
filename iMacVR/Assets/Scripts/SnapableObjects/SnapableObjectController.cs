@@ -13,6 +13,8 @@ public class SnapableObjectController : MonoBehaviour
     [SerializeField]
     private PlaceToSnapController placeToSnap;
     [SerializeField]
+    private SnapOrientation snapOr;
+    [SerializeField]
     private Rigidbody rb;
     public bool isInPlace { private set; get; }
 
@@ -43,7 +45,7 @@ public class SnapableObjectController : MonoBehaviour
 
     public void Snap()
     {
-        if (!isInPlace && placeToSnap)
+        if (!isInPlace && placeToSnap && snapOr.GetIsOriented())
         {
             isInPlace = true;
             placeToSnap.Snap(this);
