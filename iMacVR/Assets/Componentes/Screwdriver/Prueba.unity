@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &31558312
 Transform:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31558311}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2268, y: -0.003, z: -1.266}
+  m_LocalPosition: {x: 0.2492, y: -0.003, z: -1.266}
   m_LocalScale: {x: 0.039686263, y: 0.021808565, z: 0.619664}
   m_Children:
   - {fileID: 2078624307}
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   handType: 0
   controllerPose: {fileID: 0}
   grabAction:
-    actionPath: 
+    actionPath: /actions/default/in/Grab
     needsReinit: 0
 --- !u!4 &810827064
 Transform:
@@ -1374,6 +1374,7 @@ GameObject:
   - component: {fileID: 877520826}
   - component: {fileID: 877520828}
   - component: {fileID: 877520827}
+  - component: {fileID: 877520829}
   m_Layer: 0
   m_Name: Collision (1)
   m_TagString: Hole
@@ -1424,6 +1425,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0954272, y: 0.09278894, z: 0.021889593}
   m_Center: {x: -0.00033827353, y: 0.00033827504, z: 0}
+--- !u!114 &877520829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877520825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777a8d594f66334478c511e74a2ed596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  other: {fileID: 1479889315}
+  InFront: 0
 --- !u!114 &1206411495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1588,7 +1603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1386857142}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -12.14, y: 1.41, z: 2.04}
+  m_LocalPosition: {x: -12.14, y: 0.83, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2066,6 +2081,7 @@ GameObject:
   - component: {fileID: 2078624307}
   - component: {fileID: 2078624309}
   - component: {fileID: 2078624308}
+  - component: {fileID: 2078624310}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Hole
@@ -2080,13 +2096,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078624306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.12}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 31558312}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!54 &2078624308
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2114,8 +2130,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0.42, y: 0, z: 0}
+--- !u!114 &2078624310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078624306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777a8d594f66334478c511e74a2ed596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  other: {fileID: 1479889315}
+  InFront: 0
 --- !u!1 &350918527117533726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,7 +2164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &350918527117533727
 BoxCollider:
   m_ObjectHideFlags: 0
