@@ -48,27 +48,33 @@ public class Screw : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         if (Tip != null && TipCol)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Hole.GetComponent<ProductoPunto>().InFront)
             {
-                Tip.GetComponent<Tip>().Screwing += Time.deltaTime;
-                //if (Tip.GetComponent<Tip>().Screwing < 5)
-                //{
-                //    //Vector3 foraward = Hole.transform.TransformDirection(Vector3.forward);
-                //    //Hole.transform.localPosition = new Vector3(Hole.transform.localPosition.x,
-                //    //    Hole.transform.position.y, Hole.transform.position.z + Tip.GetComponent<Tip>().TipUndo);
-                //}
+                if (Input.GetKey(KeyCode.E))
+                {
+                    Tip.GetComponent<Tip>().Screwing += Time.deltaTime;
+                    //if (Tip.GetComponent<Tip>().Screwing < 5)
+                    //{
+                    //    //Vector3 foraward = Hole.transform.TransformDirection(Vector3.forward);
+                    //    //Hole.transform.localPosition = new Vector3(Hole.transform.localPosition.x,
+                    //    //    Hole.transform.position.y, Hole.transform.position.z + Tip.GetComponent<Tip>().TipUndo);
+                    //}
+                }
+                else if (Input.GetKey(KeyCode.Q))
+                {
+                    Tip.GetComponent<Tip>().Screwing -= Time.deltaTime;
+                    //if (Tip.GetComponent<Tip>().Screwing > 0)
+                    //{
+                    //    Hole.transform.position += Vector3.forward*0.01f;
+                    //}
+
+                }
             }
-            else if (Input.GetKey(KeyCode.Q))
-            {
-                Tip.GetComponent<Tip>().Screwing -= Time.deltaTime;
-                //if (Tip.GetComponent<Tip>().Screwing > 0)
-                //{
-                //    Hole.transform.position += Vector3.forward*0.01f;
-                //}
+            
                 
-            }
             //Hole.transform.localPosition = new Vector3(Hole.transform.position.x,
             //    Hole.transform.position.y, Tip.GetComponent<Tip>().TipUndo);
             Hole.transform.localPosition = Vector3.forward * Tip.GetComponent<Tip>().TipUndo;

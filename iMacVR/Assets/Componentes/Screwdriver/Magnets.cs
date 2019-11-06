@@ -82,34 +82,38 @@ public class Magnets : MonoBehaviour
         }
 
         //quitar este if despues
-        if (transform.parent.gameObject.GetComponent<DragAndDrop>().dragging)
-        {
-            transform.parent.gameObject.GetComponent<Rigidbody>().useGravity = false;
-        }
-        else
-        {
-            transform.parent.gameObject.GetComponent<Rigidbody>().useGravity = true;
-        }
+        //if (transform.parent.gameObject.GetComponent<DragAndDrop>().dragging)
+        //{
+        //    transform.parent.gameObject.GetComponent<Rigidbody>().useGravity = false;
+        //}
+        //else
+        //{
+        //    transform.parent.gameObject.GetComponent<Rigidbody>().useGravity = true;
+        //}
     }
 
     private GameObject GetTipNearest(GameObject[] magnets)
     {
-        float LastDistance = 0;
+        float NearDistance = 0;
         float ActualDistance = 0;
         GameObject NearObject = null;
         for (int i = 0; i < magnets.Length; i++)
         {
+            ActualDistance = Vector3.Distance(magnets[i].transform.position, transform.position);
             if (i == 0)
             {
                 NearObject = magnets[i];
+                NearDistance = ActualDistance;
             }
-            ActualDistance = Vector3.Distance(magnets[i].transform.position, transform.position);
-            if (ActualDistance < LastDistance)
+            
+            
+            if (ActualDistance < NearDistance)
             {
                 NearObject = magnets[i];
+                NearDistance = ActualDistance;
             }
-
-            LastDistance = ActualDistance;
+            //Debug.Log(NearObject);
+            
         }
 
         return NearObject;

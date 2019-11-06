@@ -6,6 +6,7 @@ public class ProductoPunto : MonoBehaviour
 {
 
     public Transform other;
+    public bool InFront;
 
     // Start is called before the first frame update
     void Start()
@@ -22,16 +23,21 @@ public class ProductoPunto : MonoBehaviour
             Vector3 foraward2 = transform.TransformDirection(Vector3.up);
             Vector3 toOther2 = other.position - transform.position;
 
-            Vector3 foraward3 = transform.TransformDirection(Vector3.forward);
+            Vector3 foraward3 = transform.TransformDirection(Vector3.right);
             Vector3 toOther3 = other.position - transform.position;
             //Debug.Log(foraward);
             Debug.Log("y: " + Vector3.Dot(foraward2, toOther2));
             Debug.Log("z: " + Vector3.Dot(foraward3, toOther3));
-            if (Mathf.Approximately(0, Vector3.Dot(foraward2, toOther2)))
+            if (Vector3.Dot(foraward2, toOther2) < 0.05f && Vector3.Dot(foraward2, toOther2) > -0.05f)
             {
-                if (Mathf.Approximately(0, Vector3.Dot(foraward3, toOther3)))
+                if (Vector3.Dot(foraward3, toOther3) < 0.05f && Vector3.Dot(foraward3, toOther3) > -0.05f)
                 {
-                    Debug.Log("is perfect");
+                    Debug.Log("is almost perfect");
+                    InFront = true;
+                }
+                else
+                {
+                    InFront = false;
                 }
                 
             }
