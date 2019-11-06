@@ -22,9 +22,12 @@ public class AudioManager : MonoBehaviour
     public Sprite SpritePausa;
     public Sprite SpritePlay;
 
+    private CambiarSprite _CambiarSprite = new CambiarSprite();
+
     // Start is called before the first frame update
     void Start()
     {
+        PistaNombreTxt.text = Musica[0].name;
         source = GetComponent<AudioSource>();
         //ReproducirMusica();
     }
@@ -67,6 +70,7 @@ public class AudioManager : MonoBehaviour
             PistaActual = 0;
         }
         Reproducir();
+        _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
     }
 
     public void CancionAnterior()
@@ -78,6 +82,7 @@ public class AudioManager : MonoBehaviour
             PistaActual = Musica.Length - 1;
         }
         Reproducir();
+        _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
     }
 
     public void PararMusica()                                       //LE PONE PAUSA A LA MUSICA
@@ -86,13 +91,13 @@ public class AudioManager : MonoBehaviour
         {
             StopCoroutine("EsperarTerminarMusica");
             source.Pause();
-            BotonPlayPause.sprite = SpritePausa;
+            _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePlay);
         }
         else
         {
             //StartCoroutine("EsperarTerminarMusica");
             source.Play();
-            BotonPlayPause.sprite = SpritePlay;
+            _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
         }
     }
     
