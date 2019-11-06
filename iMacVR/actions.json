@@ -37,6 +37,10 @@
       "requirement": "optional"
     },
     {
+      "name": "/actions/default/in/Atornillar",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -44,6 +48,14 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/NewSet/in/atornillar",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/NewSet/in/pose",
+      "type": "pose"
     }
   ],
   "action_sets": [
@@ -53,6 +65,10 @@
     },
     {
       "name": "/actions/mixedreality",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/NewSet",
       "usage": "single"
     }
   ],
@@ -103,7 +119,10 @@
       "/actions/default/in/SkeletonLeftHand": "Skeleton (Left)",
       "/actions/default/in/SkeletonRightHand": "Skeleton (Right)",
       "/actions/default/in/Teleport": "Teleport",
-      "/actions/default/out/Haptic": "Haptic"
+      "/actions/default/out/Haptic": "Haptic",
+      "/actions/default/in/Atornillar": "Atornillar",
+      "/actions/NewSet/in/atornillar": "atornillar",
+      "/actions/NewSet/in/pose": "pose"
     }
   ]
 }
