@@ -22,6 +22,12 @@ public class AudioManager : MonoBehaviour
     public Sprite SpritePausa;
     public Sprite SpritePlay;
 
+
+    public Image TimeBar;
+    public float maxTime;
+    float TimeLeft;
+    public bool IsPlaying;
+
     private CambiarSprite _CambiarSprite = new CambiarSprite();
 
     // Start is called before the first frame update
@@ -29,7 +35,16 @@ public class AudioManager : MonoBehaviour
     {
         PistaNombreTxt.text = Musica[0].name;
         source = GetComponent<AudioSource>();
+        maxTime = NuevoTiempo(source.clip.length);
+        TimeLeft = NuevoTiempo(source.clip.length);
+        //TimeBar = GetComponent<Image>();
         //ReproducirMusica();
+    }
+
+    void Update()
+    {
+        TimeLeft -= Time.deltaTime;
+        TimeBar.fillAmount = TimeLeft / maxTime;
     }
 
     public void ReproducirMusica()
@@ -59,8 +74,7 @@ public class AudioManager : MonoBehaviour
         }
         ProximaCancion();
     }
-
-
+    
     public void ProximaCancion()
     {
         source.Stop();
@@ -71,6 +85,7 @@ public class AudioManager : MonoBehaviour
         }
         Reproducir();
         _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
+        NuevoTiempo(source.clip.length);
     }
 
     public void CancionAnterior()
@@ -114,6 +129,12 @@ public class AudioManager : MonoBehaviour
     {
         PistaNombreTxt.text = source.clip.name;
         TiempoPista = (int)source.clip.length;
+    }
+
+    public float NuevoTiempo(float _TiempoDeCancion)
+    {
+        float i = _TiempoDeCancion;
+        return i;
     }
 
     /*void MostrarTiempoActualDePista()
