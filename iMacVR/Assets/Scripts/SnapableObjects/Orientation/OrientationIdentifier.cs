@@ -6,10 +6,10 @@ using Enums;
 public class OrientationIdentifier : MonoBehaviour
 {
     [SerializeField]
-    private TestOr testOr;
+    private OrientationId id;
 
-    public TestOr getIdentifier()
+    public OrientationId getIdentifier()
     {
-        return testOr;
+        return id;
     }
 }

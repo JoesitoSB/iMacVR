@@ -7,7 +7,7 @@
         Test2 = 2,
         Test3 = 3
     }
-    public enum TestOr
+    public enum OrientationId
     {
         O1,
         O2,

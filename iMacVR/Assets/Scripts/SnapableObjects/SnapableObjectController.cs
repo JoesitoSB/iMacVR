@@ -13,13 +13,11 @@ public class SnapableObjectController : MonoBehaviour
     [SerializeField]
     private PlaceToSnapController placeToSnap;
     [SerializeField]
-    private SnapOrientation snapOr;
+    private ObjectOrientationChecker objectOrientationChecker;
     [SerializeField]
     private Rigidbody rb;
     public bool isInPlace { private set; get; }
 
-
-    // Start is called before the first frame update
     void Start()
     {
         if (!rb) rb = GetComponent<Rigidbody>();
@@ -45,10 +43,14 @@ public class SnapableObjectController : MonoBehaviour
 
     public void Snap()
     {
-        if (!isInPlace && placeToSnap && snapOr.GetIsOriented())
+        if (!isInPlace && placeToSnap && objectOrientationChecker.IsOriented)
         {
             isInPlace = true;
             placeToSnap.Snap(this);
+        }else
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            rb.useGravity = true;
         }
     }
 
@@ -69,12 +71,11 @@ public class SnapableObjectController : MonoBehaviour
         if(_placeToSnap)
         {
             placeToSnap = _placeToSnap;
-            //Snap();
         }
-        else
-        {
-            rb.constraints = RigidbodyConstraints.None;
-        }
+        //else
+        //{
+        //    rb.constraints = RigidbodyConstraints.None;
+        //}
     }
 
 
@@ -85,9 +86,12 @@ public class SnapableObjectController : MonoBehaviour
         {
             if (place.GetType() == type)
             {
-                placeToSnap.Drop();
-                isInPlace = false;
-                placeToSnap = null;
+                if (placeToSnap)
+                {
+                    placeToSnap.Drop();
+                    placeToSnap = null;
+                    isInPlace = false;
+                }
             }
         }
         //if (placeToSnap)

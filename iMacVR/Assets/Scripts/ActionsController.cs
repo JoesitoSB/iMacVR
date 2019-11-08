@@ -72,7 +72,11 @@ public class ActionsController : MonoBehaviour
         objectInHand = collidingObject;
         collidingObject = null;
         var joint = AddFixedJoint();
-        joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
+        var objectInHandRB = objectInHand.GetComponent<Rigidbody>();
+        joint.connectedBody = objectInHandRB;
+        objectInHandRB.constraints = RigidbodyConstraints.None;
+        objectInHandRB.useGravity = true;
+        Debug.LogError("Object in hand: " + objectInHand);
     }
 
     private FixedJoint AddFixedJoint()
@@ -98,6 +102,13 @@ public class ActionsController : MonoBehaviour
             objectInHandRB.angularVelocity = controllerPose.GetAngularVelocity();
 
         }
+
+        var snapableObjectController = objectInHand.GetComponent<SnapableObjectController>();
+        if(snapableObjectController)
+        {
+            snapableObjectController.Snap();
+        }
+
         // 4
         objectInHand = null;
         if(SnapObjectInHand != null)
