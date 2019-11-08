@@ -16,30 +16,23 @@ public class Screw : MonoBehaviour
     //[SerializeField]
     //private float screwing = -0.1f;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        if (TipCol)
+        if (TipCol && Tip != null)
         {
-
             if (Tip.GetComponent<Tip>().Screwing > 0)
             {
                 Tip.transform.parent = Hole.transform;
                 Tip.GetComponent<Tip>().Screw = true;
                 gameObject.GetComponent<Magnets>().attached = false;
-                
+                Tip.GetComponent<Rigidbody>().isKinematic = true;
+                gameObject.GetComponent<Magnets>().DestoryJoint();
+                Hole.GetComponent<ProductoPunto>().ScrewTip = true;
             }
             else if (Tip.GetComponent<Tip>().Screwing < 0)
             {
-                if (Tip != null)
-                {
-                    Tip.GetComponent<Tip>().Screw = false;
-                    
-                }
+                Tip.GetComponent<Tip>().Screw = false;
+                Hole.GetComponent<ProductoPunto>().ScrewTip = false;
             }
 
             Tip.GetComponent<Tip>().TipUndo = (Tip.GetComponent<Tip>().Screwing * .18f) / 2.9f;
@@ -48,7 +41,6 @@ public class Screw : MonoBehaviour
 
     void FixedUpdate()
     {
-        
         if (Tip != null && TipCol)
         {
             if (Hole.GetComponent<ProductoPunto>().InFront)
@@ -56,29 +48,26 @@ public class Screw : MonoBehaviour
                 if (Input.GetKey(KeyCode.E))
                 {
                     Tip.GetComponent<Tip>().Screwing += Time.deltaTime;
-                    //if (Tip.GetComponent<Tip>().Screwing < 5)
-                    //{
-                    //    //Vector3 foraward = Hole.transform.TransformDirection(Vector3.forward);
-                    //    //Hole.transform.localPosition = new Vector3(Hole.transform.localPosition.x,
-                    //    //    Hole.transform.position.y, Hole.transform.position.z + Tip.GetComponent<Tip>().TipUndo);
-                    //}
+                    Hole.transform.localPosition += Vector3.forward * Tip.GetComponent<Tip>().TipUndo;
                 }
                 else if (Input.GetKey(KeyCode.Q))
                 {
                     Tip.GetComponent<Tip>().Screwing -= Time.deltaTime;
-                    //if (Tip.GetComponent<Tip>().Screwing > 0)
-                    //{
-                    //    Hole.transform.position += Vector3.forward*0.01f;
-                    //}
-
+                    Hole.transform.localPosition -= Vector3.forward * Tip.GetComponent<Tip>().TipUndo;
                 }
             }
             
-                
-            //Hole.transform.localPosition = new Vector3(Hole.transform.position.x,
-            //    Hole.transform.position.y, Tip.GetComponent<Tip>().TipUndo);
-            Hole.transform.localPosition = Vector3.forward * Tip.GetComponent<Tip>().TipUndo;
+            
             Tip.GetComponent<Tip>().Screwing = Mathf.Clamp(Tip.GetComponent<Tip>().Screwing, -1, 3f);
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            taladrar();
+        }
+        else if (Input.GetKey(KeyCode.Q))
+        {
+            destaladrar();
         }
         
     }
@@ -88,7 +77,7 @@ public class Screw : MonoBehaviour
         if (other.gameObject.tag == "Hole")
         {
             TipCol = true;
-            if (other.gameObject.transform.childCount <= 0)
+            if (!other.gameObject.GetComponent<ProductoPunto>().ScrewTip)
             {
                 if (gameObject.GetComponent<Magnets>().attached)
                 {
@@ -118,11 +107,20 @@ public class Screw : MonoBehaviour
             TipCol = false;
             if (Tip.GetComponent<Tip>().Screwing < 0 && Tip != null)
             {
-                Tip.transform.parent = transform;
                 Tip = null;
                 gameObject.GetComponent<Magnets>().attached = true;
             }
             Hole = null;
         }
+    }
+
+    public void taladrar()
+    {
+        transform.localEulerAngles += new Vector3(0, 1.5f, 0);
+    }
+
+    public void destaladrar()
+    {
+        transform.localEulerAngles -= new Vector3(0, 1.5f, 0);
     }
 }

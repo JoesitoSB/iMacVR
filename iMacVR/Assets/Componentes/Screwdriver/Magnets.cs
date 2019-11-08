@@ -17,6 +17,7 @@ public class Magnets : MonoBehaviour
     public float speed = 0.1f;
     private float Dist = 0;
 
+    private bool CreateJoint = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,24 +35,26 @@ public class Magnets : MonoBehaviour
         }
         
         Dist = Vector3.Distance(NearGameObject.transform.position, transform.position);
-        //Debug.Log(Dist);
+        Debug.Log(Dist);
         //Debug.Log(attached);
         if (Dist <= SnapScrewDistance)
         {
             if (!attached && !NearGameObject.GetComponent<Tip>().Screw)
             {
                 NearGameObject.transform.position = transform.position;
-                NearGameObject.transform.parent = transform;
                 NearGameObject.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                
+
+                if (!CreateJoint)
+                {
+                    var joint = AddFixedJoint();
+                    joint.connectedBody = NearGameObject.GetComponent<Rigidbody>();
+                    GetComponent<Rigidbody>().isKinematic = true;
+                    CreateJoint = true;
+                }
+
                 toVector = new Vector3(transform.parent.localEulerAngles.x, transform.parent.localEulerAngles.y,
                     transform.parent.localEulerAngles.z);
-                //toVector -= new Vector3(180, 0, 0);
                 fromVector = NearGameObject.transform.eulerAngles;
-                //Debug.Log("to: " + toVector);
-                //Debug.Log("from: " + fromVector);
-
-                //NearGameObject
 
                 fromVector = new Vector3(
                     Mathf.LerpAngle(fromVector.x, toVector.x, Time.deltaTime * speed),
@@ -64,23 +67,25 @@ public class Magnets : MonoBehaviour
                     fromVector.z < toVector.z + 0.09f && fromVector.z > toVector.z - 0.09f)
                 {
                     attached = true;
+                    NearGameObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 }
 
                 
             }
-
-            //if (attached)
-            //{
-            //    NearGameObject.transform.position = transform.position;
-            //}
+            
         }
         else if(Dist > SnapScrewDistance && attached)
         {
-            NearGameObject.transform.parent = null;
-            NearGameObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-            attached = false;
+            Debug.Log("muy lejos");
+            DestoryJoint();
+            CreateJoint = false;
         }
 
+        if (attached)
+        {
+            //NearGameObject.transform.position = transform.position;
+            NearGameObject.transform.rotation = transform.rotation;
+        }
         //quitar este if despues
         //if (transform.parent.gameObject.GetComponent<DragAndDrop>().dragging)
         //{
@@ -90,6 +95,27 @@ public class Magnets : MonoBehaviour
         //{
         //    transform.parent.gameObject.GetComponent<Rigidbody>().useGravity = true;
         //}
+    }
+
+    public void DestoryJoint()
+    {
+        var fixedJoint = GetComponent<FixedJoint>();
+        var rb = GetComponent<Rigidbody>();
+        if (fixedJoint)
+        {
+            //Destroy the fixed joint
+            fixedJoint.connectedBody = null;
+            Destroy(fixedJoint);
+            Destroy(rb);
+        }
+    }
+
+    private HingeJoint AddFixedJoint()
+    {
+        HingeJoint fx = gameObject.AddComponent<HingeJoint>();
+        fx.breakForce = 20000;
+        fx.breakTorque = 20000;
+        return fx;
     }
 
     private GameObject GetTipNearest(GameObject[] magnets)
