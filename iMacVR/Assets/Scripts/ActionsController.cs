@@ -5,9 +5,6 @@ using Valve.VR;
 
 public class ActionsController : MonoBehaviour
 {
-    [SerializeField]
-    private RoboRyanTron.Unite2017.Events.GameEvent SnapObjectInHand;
-
     public SteamVR_Input_Sources handType;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean grabAction;
@@ -111,9 +108,5 @@ public class ActionsController : MonoBehaviour
 
         // 4
         objectInHand = null;
-        if(SnapObjectInHand != null)
-        {
-            SnapObjectInHand.Raise();
-        }
     }
 }
