@@ -22,11 +22,11 @@ public class AudioManager : MonoBehaviour
     public Sprite SpritePausa;
     public Sprite SpritePlay;
 
-
+    /*
     public Image TimeBar;
     public float maxTime;
     float TimeLeft;
-    public bool IsPlaying;
+    public bool IsPlaying;*/
 
     private CambiarSprite _CambiarSprite = new CambiarSprite();
 
@@ -35,17 +35,18 @@ public class AudioManager : MonoBehaviour
     {
         PistaNombreTxt.text = Musica[0].name;
         source = GetComponent<AudioSource>();
-        maxTime = NuevoTiempo(source.clip.length);
-        TimeLeft = NuevoTiempo(source.clip.length);
+        //maxTime = NuevoTiempo(source.clip.length);
+
+        //TimeLeft = NuevoTiempo(source.clip.length);
         //TimeBar = GetComponent<Image>();
         //ReproducirMusica();
     }
-
+    /*
     void Update()
     {
         TimeLeft -= Time.deltaTime;
         TimeBar.fillAmount = TimeLeft / maxTime;
-    }
+    }*/
 
     public void ReproducirMusica()
     {
