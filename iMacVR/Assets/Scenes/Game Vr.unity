@@ -28097,7 +28097,7 @@ GameObject:
   - component: {fileID: 1885246101561734880}
   - component: {fileID: 1885246101561734881}
   - component: {fileID: 1885246101561734886}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52989,6 +52989,7 @@ GameObject:
   - component: {fileID: 5066806889357617068}
   - component: {fileID: 3348058747125457028}
   - component: {fileID: 3932254294840597578}
+  - component: {fileID: 5892670386803888476}
   m_Layer: 0
   m_Name: Desk2_Mesa1
   m_TagString: Untagged
@@ -52996,6 +52997,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &5892670386803888476
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5892670386803888475}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 8889973280695206748, guid: b31cc09c683d90448907110152bec649, type: 3}
 --- !u!33 &5942109006019220906
 MeshFilter:
   m_ObjectHideFlags: 0
