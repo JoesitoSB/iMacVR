@@ -35,7 +35,7 @@ public class Magnets : MonoBehaviour
         }
         
         Dist = Vector3.Distance(NearGameObject.transform.position, transform.position);
-        Debug.Log(Dist);
+        //Debug.Log(Dist);
         //Debug.Log(attached);
         if (Dist <= SnapScrewDistance)
         {
@@ -99,13 +99,13 @@ public class Magnets : MonoBehaviour
 
     public void DestoryJoint()
     {
-        var fixedJoint = GetComponent<FixedJoint>();
+        var HingeJoint = GetComponent<HingeJoint>();
         var rb = GetComponent<Rigidbody>();
-        if (fixedJoint)
+        if (HingeJoint)
         {
             //Destroy the fixed joint
-            fixedJoint.connectedBody = null;
-            Destroy(fixedJoint);
+            HingeJoint.connectedBody = null;
+            Destroy(HingeJoint);
             Destroy(rb);
         }
     }

@@ -51,7 +51,7 @@
     },
     {
       "name": "/actions/NewSet/in/atornillar",
-      "type": "boolean"
+      "type": "vector2"
     },
     {
       "name": "/actions/NewSet/in/pose",

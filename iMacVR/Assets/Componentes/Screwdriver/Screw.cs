@@ -16,6 +16,8 @@ public class Screw : MonoBehaviour
     //[SerializeField]
     //private float screwing = -0.1f;
 
+    public SteamVR_Action_Vector2 atornillar;
+
     void Update()
     {
         if (TipCol && Tip != null)
@@ -55,6 +57,17 @@ public class Screw : MonoBehaviour
                     Tip.GetComponent<Tip>().Screwing -= Time.deltaTime;
                     Hole.transform.localPosition -= Vector3.forward * Tip.GetComponent<Tip>().TipUndo;
                 }
+
+                if (atornillar.GetAxis(SteamVR_Input_Sources.Any).y > 0)
+                {
+                    Tip.GetComponent<Tip>().Screwing += Time.deltaTime;
+                    Hole.transform.localPosition += Vector3.forward * Tip.GetComponent<Tip>().TipUndo;
+                }
+                else if (atornillar.GetAxis(SteamVR_Input_Sources.Any).y < 0)
+                {
+                    Tip.GetComponent<Tip>().Screwing -= Time.deltaTime;
+                    Hole.transform.localPosition -= Vector3.forward * Tip.GetComponent<Tip>().TipUndo;
+                }
             }
             
             
@@ -66,6 +79,15 @@ public class Screw : MonoBehaviour
             taladrar();
         }
         else if (Input.GetKey(KeyCode.Q))
+        {
+            destaladrar();
+        }
+
+        if (atornillar.GetAxis(SteamVR_Input_Sources.Any).y > 0)
+        {
+            taladrar();
+        }
+        else if (atornillar.GetAxis(SteamVR_Input_Sources.Any).y < 0)
         {
             destaladrar();
         }

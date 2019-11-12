@@ -39,7 +39,7 @@ namespace Valve.VR
         
         private static SteamVR_Action_Pose p_mixedreality_ExternalCamera;
         
-        private static SteamVR_Action_Boolean p_newSet_atornillar;
+        private static SteamVR_Action_Vector2 p_newSet_atornillar;
         
         private static SteamVR_Action_Pose p_newSet_pose;
         
@@ -131,11 +131,11 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Boolean newSet_atornillar
+        public static SteamVR_Action_Vector2 newSet_atornillar
         {
             get
             {
-                return SteamVR_Actions.p_newSet_atornillar.GetCopy<SteamVR_Action_Boolean>();
+                return SteamVR_Actions.p_newSet_atornillar.GetCopy<SteamVR_Action_Vector2>();
             }
         }
         
@@ -189,11 +189,11 @@ namespace Valve.VR
                     SteamVR_Actions.default_Teleport,
                     SteamVR_Actions.default_Grab,
                     SteamVR_Actions.default_HeadsetOnHead,
-                    SteamVR_Actions.default_Atornillar,
-                    SteamVR_Actions.newSet_atornillar};
+                    SteamVR_Actions.default_Atornillar};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[] {
                     SteamVR_Actions.default_Squeeze};
-            Valve.VR.SteamVR_Input.actionsVector2 = new Valve.VR.SteamVR_Action_Vector2[0];
+            Valve.VR.SteamVR_Input.actionsVector2 = new Valve.VR.SteamVR_Action_Vector2[] {
+                    SteamVR_Actions.newSet_atornillar};
             Valve.VR.SteamVR_Input.actionsVector3 = new Valve.VR.SteamVR_Action_Vector3[0];
             Valve.VR.SteamVR_Input.actionsSkeleton = new Valve.VR.SteamVR_Action_Skeleton[] {
                     SteamVR_Actions.default_SkeletonLeftHand,
@@ -221,7 +221,7 @@ namespace Valve.VR
             SteamVR_Actions.p_default_Atornillar = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/Atornillar")));
             SteamVR_Actions.p_default_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/default/out/Haptic")));
             SteamVR_Actions.p_mixedreality_ExternalCamera = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/mixedreality/in/ExternalCamera")));
-            SteamVR_Actions.p_newSet_atornillar = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/NewSet/in/atornillar")));
+            SteamVR_Actions.p_newSet_atornillar = ((SteamVR_Action_Vector2)(SteamVR_Action.Create<SteamVR_Action_Vector2>("/actions/NewSet/in/atornillar")));
             SteamVR_Actions.p_newSet_pose = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/NewSet/in/pose")));
         }
     }
