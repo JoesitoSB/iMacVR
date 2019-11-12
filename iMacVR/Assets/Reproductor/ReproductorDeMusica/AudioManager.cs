@@ -13,44 +13,60 @@ public class AudioManager : MonoBehaviour
 
     //public Text PistaTiempoTxt;
     public Text PistaNombreTxt;
-    
+
     private int TiempoPista;
     private int TiempoActualDePista;
-    private int Segundos;
-    private int Minutos;
+    private float Segundos;
+    private float Minutos;
     public Image BotonPlayPause;
     public Sprite SpritePausa;
     public Sprite SpritePlay;
 
-    /*
+    //Barra de Tiempo
     public Image TimeBar;
+    public Text TiempoActual_Txt;
+    public Text TiempoFaltante_Txt;
     public float maxTime;
-    float TimeLeft;
-    public bool IsPlaying;*/
+    public float TiempoRestante;
+    public float TiempoActual;
+    public bool IsPlaying;
+    //
+
 
     private CambiarSprite _CambiarSprite = new CambiarSprite();
 
-    // Start is called before the first frame update
     void Start()
     {
+        TiempoRestante = maxTime;
+        TiempoActual = 0;
         PistaNombreTxt.text = Musica[0].name;
         source = GetComponent<AudioSource>();
-        //maxTime = NuevoTiempo(source.clip.length);
-
-        //TimeLeft = NuevoTiempo(source.clip.length);
-        //TimeBar = GetComponent<Image>();
-        //ReproducirMusica();
     }
-    /*
+
     void Update()
     {
-        TimeLeft -= Time.deltaTime;
-        TimeBar.fillAmount = TimeLeft / maxTime;
-    }*/
+        if (IsPlaying)
+        {
+            CorrerTiempo();
+            TiempoActual_Txt.text = MostrarTiempoActualDePista(TiempoActual);
+            TiempoFaltante_Txt.text = MostrarTiempoActualDePista(TiempoRestante);
+        }
+        if (TimeBar.fillAmount <= 0)
+        {
+            ProximaCancion();
+        }
+    }
 
-    public void ReproducirMusica()
+    public void CorrerTiempo()                                      //CORRE EL TIEMPO DE LA CANCION
     {
-        if(!source.isPlaying)
+        TiempoRestante -= Time.deltaTime;
+        TiempoActual += Time.deltaTime;
+        TimeBar.fillAmount = TiempoRestante / maxTime;
+    }
+
+    public void ReproducirMusica()                                  //REPRODUCE LA MUSICA
+    {
+        if (!source.isPlaying)
         {
             return;
         }
@@ -61,22 +77,9 @@ public class AudioManager : MonoBehaviour
         {
             PistaActual = Musica.Length - 1;
         }
-
-        StartCoroutine("EsperarTerminarMusica");
     }
 
-    IEnumerator EsperarTerminarMusica()
-    {
-        while(source.isPlaying)
-        {
-            TiempoActualDePista = (int)source.time;
-            //MostrarTiempoActualDePista();
-            yield return null;
-        }
-        ProximaCancion();
-    }
-    
-    public void ProximaCancion()
+    public void ProximaCancion()                                    //REPRODUCE LA SIGUIENTE CANCION
     {
         source.Stop();
         PistaActual++;
@@ -86,7 +89,10 @@ public class AudioManager : MonoBehaviour
         }
         Reproducir();
         _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
-        NuevoTiempo(source.clip.length);
+        IsPlaying = true;
+        maxTime = source.clip.length;
+        TiempoRestante = maxTime;
+        TiempoActual = 0;
     }
 
     public void CancionAnterior()
@@ -99,50 +105,45 @@ public class AudioManager : MonoBehaviour
         }
         Reproducir();
         _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
-    }
+        IsPlaying = true;
+        maxTime = source.clip.length;
+        TiempoRestante = maxTime;
+        TiempoActual = 0;
+    }                               //REPRODUCE LA CANCION ANTERIOR
 
     public void PararMusica()                                       //LE PONE PAUSA A LA MUSICA
     {
         if (source.isPlaying)
         {
-            StopCoroutine("EsperarTerminarMusica");
             source.Pause();
+            IsPlaying = false;
             _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePlay);
         }
         else
         {
-            //StartCoroutine("EsperarTerminarMusica");
             source.Play();
+            IsPlaying = true;
             _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
         }
     }
-    
+
     private void Reproducir()                                       //REPRODUCE LA CANCION
     {
         source.clip = Musica[PistaActual];
         source.Play();
         MostrarDatosDePista();
-        //MostrarTiempoActualDePista();
-        StartCoroutine("EsperarTerminarMusica");
     }
 
-    void MostrarDatosDePista()
+    void MostrarDatosDePista()                                      //TOMA EL NOMBRE Y EL TAMAñO DE LA CANCION;
     {
         PistaNombreTxt.text = source.clip.name;
         TiempoPista = (int)source.clip.length;
     }
 
-    public float NuevoTiempo(float _TiempoDeCancion)
+    private string MostrarTiempoActualDePista(float _TiempoDePistaActual)   //MUESTRA EL TIEMPO DE LA CANCION
     {
-        float i = _TiempoDeCancion;
-        return i;
+        Segundos = _TiempoDePistaActual % 60;
+        Minutos = _TiempoDePistaActual / 60 % 60;
+        return string.Format("{0:00}:{1:00}", Minutos, Segundos);
     }
-
-    /*void MostrarTiempoActualDePista()
-    {
-        Segundos = TiempoActualDePista % 60;
-        Minutos = TiempoActualDePista / 60 % 60;
-        PistaTiempoTxt.text = Minutos + ":" + Segundos.ToString("D2") + "/" + ((TiempoPista/60) % 60) + ":" + (TiempoPista % 60).ToString("D2");
-    }*/
-
 }
