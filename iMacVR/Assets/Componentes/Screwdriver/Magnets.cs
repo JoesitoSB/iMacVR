@@ -79,6 +79,7 @@ public class Magnets : MonoBehaviour
             Debug.Log("muy lejos");
             DestoryJoint();
             CreateJoint = false;
+            attached = false;
         }
 
         if (attached)
@@ -99,7 +100,7 @@ public class Magnets : MonoBehaviour
 
     public void DestoryJoint()
     {
-        var HingeJoint = GetComponent<HingeJoint>();
+        var HingeJoint = GetComponent<FixedJoint>();
         var rb = GetComponent<Rigidbody>();
         if (HingeJoint)
         {
@@ -110,9 +111,9 @@ public class Magnets : MonoBehaviour
         }
     }
 
-    private HingeJoint AddFixedJoint()
+    private FixedJoint AddFixedJoint()
     {
-        HingeJoint fx = gameObject.AddComponent<HingeJoint>();
+        FixedJoint fx = gameObject.AddComponent<FixedJoint>();
         fx.breakForce = 20000;
         fx.breakTorque = 20000;
         return fx;
