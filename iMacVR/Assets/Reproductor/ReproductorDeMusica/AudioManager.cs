@@ -4,16 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
-[RequireComponent(typeof(AudioSource))]
+//[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
+    //
+    public ClaseAudio[] Canciones;
+    //
+
     public AudioClip[] Musica;
     private AudioSource source;
     private int PistaActual;
 
-    //public Text PistaTiempoTxt;
-    public Text PistaNombreTxt;
 
+    #region public Text PistaTiempoTxt
+    public Text PistaNombreTxt;
     private int TiempoPista;
     private int TiempoActualDePista;
     private float Segundos;
@@ -21,8 +25,9 @@ public class AudioManager : MonoBehaviour
     public Image BotonPlayPause;
     public Sprite SpritePausa;
     public Sprite SpritePlay;
+    #endregion
 
-    //Barra de Tiempo
+    #region Barra de Tiempo
     public Image TimeBar;
     public Text TiempoActual_Txt;
     public Text TiempoFaltante_Txt;
@@ -30,10 +35,25 @@ public class AudioManager : MonoBehaviour
     public float TiempoRestante;
     public float TiempoActual;
     public bool IsPlaying;
-    //
-
+    #endregion
+    
+    #region Barra de Tiempo
+    public Image AlbumArtIMG;
+    public Sprite[] TodosLosAlbumArt;
+    #endregion
 
     private CambiarSprite _CambiarSprite = new CambiarSprite();
+
+    /*
+    private void Awake()
+    {
+        foreach(ClaseAudio _cancion in Canciones)
+        {
+            _cancion.source = gameObject.AddComponent<AudioSource>();
+            _cancion.source.clip = _cancion.clip;
+        }
+    }
+   */
 
     void Start()
     {
@@ -41,6 +61,7 @@ public class AudioManager : MonoBehaviour
         TiempoActual = 0;
         PistaNombreTxt.text = Musica[0].name;
         source = GetComponent<AudioSource>();
+        CambiarArte(0);
     }
 
     void Update()
@@ -90,6 +111,7 @@ public class AudioManager : MonoBehaviour
         Reproducir();
         _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
         IsPlaying = true;
+        CambiarArte(PistaActual);
         maxTime = source.clip.length;
         TiempoRestante = maxTime;
         TiempoActual = 0;
@@ -106,6 +128,7 @@ public class AudioManager : MonoBehaviour
         Reproducir();
         _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
         IsPlaying = true;
+        CambiarArte(PistaActual);
         maxTime = source.clip.length;
         TiempoRestante = maxTime;
         TiempoActual = 0;
@@ -133,6 +156,17 @@ public class AudioManager : MonoBehaviour
         source.Play();
         MostrarDatosDePista();
     }
+
+    private void CambiarArte(int CancionNum)
+    {
+        AlbumArtIMG.sprite = TodosLosAlbumArt[CancionNum];
+    }
+
+    /*
+    public void Play ()
+    {
+        //ClaseAudio _
+    }*/
 
     void MostrarDatosDePista()                                      //TOMA EL NOMBRE Y EL TAMAñO DE LA CANCION;
     {
