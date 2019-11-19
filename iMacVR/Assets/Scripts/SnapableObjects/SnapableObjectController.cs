@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Enums;
 
+/*
+ * Los orientation checker son y estan en la mismo posicion de los tornillos
+ */
+
 [RequireComponent(typeof(Collision), typeof(Rigidbody))]
 public class SnapableObjectController : MonoBehaviour
 {
@@ -45,11 +49,13 @@ public class SnapableObjectController : MonoBehaviour
     {
         if (!isInPlace && placeToSnap && objectOrientationChecker.IsOriented)
         {
+            Debug.Log("Entro aqui 3");
             isInPlace = true;
             placeToSnap.Snap(this);
         }else
         {
-            rb.constraints = RigidbodyConstraints.None;
+            //rb.constraints = RigidbodyConstraints.None;
+            rb.isKinematic = false;
             rb.useGravity = true;
         }
     }

@@ -76,7 +76,7 @@ public class ActionsController : MonoBehaviour
         joint.connectedBody = objectInHandRB;
         objectInHandRB.constraints = RigidbodyConstraints.None;
         objectInHandRB.useGravity = true;
-        Debug.LogError("Object in hand: " + objectInHand);
+        //Debug.LogError("Object in hand: " + objectInHand);
     }
 
     private FixedJoint AddFixedJoint()
