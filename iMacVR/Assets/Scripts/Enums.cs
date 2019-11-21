@@ -3,7 +3,8 @@
     public enum TypeSnapableObject
     {
         none = 0,
-        Fan
+        Fan,
+        HDD
     }
     public enum OrientationId
     {
@@ -12,6 +13,10 @@
         FanScrew3,
         O1,
         O2,
-        O3
+        O3,
+        HDDScrew1,
+        HDDScrew2,
+        HDDScrew3,
+        HDDScrew4
     }
 }
