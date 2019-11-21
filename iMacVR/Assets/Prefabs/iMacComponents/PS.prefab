@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2549092485521747847}
   - component: {fileID: 3984791067811464879}
+  - component: {fileID: 3031400046828573507}
   m_Layer: 0
   m_Name: Tornillo (1)
   m_TagString: Untagged
@@ -39,11 +40,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878526316343001418}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3031400046828573507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878526316343001418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb8477c3a9af324ab9dbdc403ea0094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 7
+  snapOr: {fileID: 6690930865250122434}
 --- !u!1 &2826957047005648690
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,8 +69,9 @@ GameObject:
   m_Component:
   - component: {fileID: 633918396516673471}
   - component: {fileID: 7700868723548561690}
+  - component: {fileID: 6015661508908764756}
   m_Layer: 0
-  m_Name: Tornillo
+  m_Name: Tornillo (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,11 +99,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2826957047005648690}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6015661508908764756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826957047005648690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb8477c3a9af324ab9dbdc403ea0094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 8
+  snapOr: {fileID: 6690930865250122434}
 --- !u!1 &3048505492037966747
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,8 +128,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8573871506216526649}
   - component: {fileID: 4344305534584932876}
+  - component: {fileID: 2288968428354862314}
   m_Layer: 0
-  m_Name: Tornillo (2)
+  m_Name: Tornillo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,11 +158,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3048505492037966747}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2288968428354862314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048505492037966747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb8477c3a9af324ab9dbdc403ea0094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 6
+  snapOr: {fileID: 6690930865250122434}
 --- !u!1 &5402397719915657184
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 899958086405839263}
   - component: {fileID: 571865790104082189}
+  - component: {fileID: 6703751073126848828}
   m_Layer: 0
   m_Name: Tornillo (3)
   m_TagString: Untagged
@@ -171,11 +217,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5402397719915657184}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6703751073126848828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5402397719915657184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb8477c3a9af324ab9dbdc403ea0094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 9
+  snapOr: {fileID: 6690930865250122434}
 --- !u!1 &7167109025673592692
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +291,9 @@ GameObject:
   - component: {fileID: 5851907932250003671}
   - component: {fileID: 3201252282498966241}
   - component: {fileID: 9174299278700027416}
+  - component: {fileID: 7645084722352246962}
+  - component: {fileID: 8888738026324114586}
+  - component: {fileID: 6690930865250122434}
   m_Layer: 0
   m_Name: PS
   m_TagString: Untagged
@@ -307,3 +370,48 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &7645084722352246962
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452752160801663684}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8888738026324114586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452752160801663684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6703607a0ef8be74989d79db160d60fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  placeToSnap: {fileID: 0}
+  objectOrientationChecker: {fileID: 6690930865250122434}
+  rb: {fileID: 7645084722352246962}
+--- !u!114 &6690930865250122434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452752160801663684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b929010efaf07a145b8a3266bc153dc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OrientationsArray: 06000000070000000800000009000000
