@@ -100,8 +100,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225693972117694}
-  - component: {fileID: 6781246150791519123}
-  - component: {fileID: 5370282092801218891}
+  - component: {fileID: 694669112}
+  - component: {fileID: 694669111}
   m_Layer: 0
   m_Name: status
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6781246150791519123
+--- !u!33 &694669112
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +132,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225693972117693}
   m_Mesh: {fileID: 0}
---- !u!23 &5370282092801218891
+--- !u!23 &694669111
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,8 +178,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225693977958452}
-  - component: {fileID: 7371237143735408970}
-  - component: {fileID: 4610655827557550854}
+  - component: {fileID: 446711991}
+  - component: {fileID: 446711990}
   m_Layer: 0
   m_Name: lgrip
   m_TagString: Untagged
@@ -202,7 +202,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7371237143735408970
+--- !u!33 &446711991
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,7 +210,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225693977958451}
   m_Mesh: {fileID: 0}
---- !u!23 &4610655827557550854
+--- !u!23 &446711990
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,8 +256,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694053748920}
-  - component: {fileID: 7484339891897253911}
-  - component: {fileID: 7687099569309183745}
+  - component: {fileID: 994436218}
+  - component: {fileID: 994436217}
   m_Layer: 0
   m_Name: led
   m_TagString: Untagged
@@ -280,7 +280,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7484339891897253911
+--- !u!33 &994436218
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +288,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694053748903}
   m_Mesh: {fileID: 0}
---- !u!23 &7687099569309183745
+--- !u!23 &994436217
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,8 +334,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694088834654}
-  - component: {fileID: 8126740163583134882}
-  - component: {fileID: 1724990663965795745}
+  - component: {fileID: 1028515773}
+  - component: {fileID: 1028515772}
   m_Layer: 0
   m_Name: trackpad_touch
   m_TagString: Untagged
@@ -358,7 +358,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8126740163583134882
+--- !u!33 &1028515773
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -366,7 +366,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694088834653}
   m_Mesh: {fileID: 0}
---- !u!23 &1724990663965795745
+--- !u!23 &1028515772
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -503,8 +503,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694292448788}
-  - component: {fileID: 4615787361563582927}
-  - component: {fileID: 1401858695254933632}
+  - component: {fileID: 208905343}
+  - component: {fileID: 208905342}
   m_Layer: 0
   m_Name: button
   m_TagString: Untagged
@@ -527,7 +527,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4615787361563582927
+--- !u!33 &208905343
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -535,7 +535,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694292448787}
   m_Mesh: {fileID: 0}
---- !u!23 &1401858695254933632
+--- !u!23 &208905342
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -581,8 +581,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694317706597}
-  - component: {fileID: 6438998943212575801}
-  - component: {fileID: 8865154014114221751}
+  - component: {fileID: 859348268}
+  - component: {fileID: 859348267}
   m_Layer: 0
   m_Name: trigger
   m_TagString: Untagged
@@ -605,7 +605,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6438998943212575801
+--- !u!33 &859348268
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -613,7 +613,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694317706596}
   m_Mesh: {fileID: 0}
---- !u!23 &8865154014114221751
+--- !u!23 &859348267
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -689,8 +689,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694497906590}
-  - component: {fileID: 4573532531600466303}
-  - component: {fileID: 1245408316237395390}
+  - component: {fileID: 958006805}
+  - component: {fileID: 958006804}
   m_Layer: 0
   m_Name: rgrip
   m_TagString: Untagged
@@ -713,7 +713,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4573532531600466303
+--- !u!33 &958006805
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -721,7 +721,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694497906589}
   m_Mesh: {fileID: 0}
---- !u!23 &1245408316237395390
+--- !u!23 &958006804
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -797,8 +797,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694534999875}
-  - component: {fileID: 5079096277251787627}
-  - component: {fileID: 3783953173534412785}
+  - component: {fileID: 1454695716}
+  - component: {fileID: 1454695715}
   m_Layer: 0
   m_Name: rgrip
   m_TagString: Untagged
@@ -821,7 +821,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5079096277251787627
+--- !u!33 &1454695716
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -829,7 +829,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694534999874}
   m_Mesh: {fileID: 0}
---- !u!23 &3783953173534412785
+--- !u!23 &1454695715
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1200,11 +1200,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bce6df33155c9f448e28357ed3657c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnapObjectInHand: {fileID: 11400000, guid: 7e3311dd8f89ca843bdbd69ca94e762e, type: 2}
   handType: 2
   controllerPose: {fileID: 5883218165028453752}
   grabAction:
     actionPath: /actions/default/in/Grab
+    needsReinit: 0
+  grabActionWithGrip:
+    actionPath: 
     needsReinit: 0
 --- !u!54 &5778225694100168495
 Rigidbody:
@@ -1233,8 +1235,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1349936, y: 0.1310769, z: 0.1300745}
-  m_Center: {x: 0.001410432, y: -0.03163332, z: 0.03218591}
+  m_Size: {x: 0.07284495, y: 0.073952764, z: 0.06320953}
+  m_Center: {x: 0.001695171, y: -0.035335615, z: 0.011972308}
 --- !u!114 &1437755563357372951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,11 +1355,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bce6df33155c9f448e28357ed3657c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnapObjectInHand: {fileID: 11400000, guid: 7e3311dd8f89ca843bdbd69ca94e762e, type: 2}
   handType: 1
   controllerPose: {fileID: 5883218165807342320}
   grabAction:
     actionPath: /actions/default/in/Grab
+    needsReinit: 0
+  grabActionWithGrip:
+    actionPath: 
     needsReinit: 0
 --- !u!54 &5778225694426098245
 Rigidbody:
@@ -1386,8 +1390,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.13499357, y: 0.13107693, z: 0.1300745}
-  m_Center: {x: 0.0014104322, y: -0.031633317, z: 0.032185912}
+  m_Size: {x: 0.07280186, y: 0.073952675, z: 0.06289482}
+  m_Center: {x: 0.0018458664, y: -0.03586468, z: 0.012337565}
 --- !u!114 &1553253572036817664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,8 +1428,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694595893549}
-  - component: {fileID: 5463922543926407675}
-  - component: {fileID: 7847441008316328664}
+  - component: {fileID: 624273866}
+  - component: {fileID: 624273865}
   m_Layer: 0
   m_Name: trigger
   m_TagString: Untagged
@@ -1448,7 +1452,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5463922543926407675
+--- !u!33 &624273866
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1456,7 +1460,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694595893548}
   m_Mesh: {fileID: 0}
---- !u!23 &7847441008316328664
+--- !u!23 &624273865
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1502,8 +1506,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694611306597}
-  - component: {fileID: 6005830744395296006}
-  - component: {fileID: 8032356615630253388}
+  - component: {fileID: 1712643987}
+  - component: {fileID: 1712643986}
   m_Layer: 0
   m_Name: trackpad_touch
   m_TagString: Untagged
@@ -1526,7 +1530,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6005830744395296006
+--- !u!33 &1712643987
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1534,7 +1538,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694611306596}
   m_Mesh: {fileID: 0}
---- !u!23 &8032356615630253388
+--- !u!23 &1712643986
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1610,8 +1614,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694718967645}
-  - component: {fileID: 5193760061234064042}
-  - component: {fileID: 7407768764664944412}
+  - component: {fileID: 651113841}
+  - component: {fileID: 651113840}
   m_Layer: 0
   m_Name: trackpad_scroll_cut
   m_TagString: Untagged
@@ -1634,7 +1638,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5193760061234064042
+--- !u!33 &651113841
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1642,7 +1646,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694718967644}
   m_Mesh: {fileID: 0}
---- !u!23 &7407768764664944412
+--- !u!23 &651113840
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1688,8 +1692,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694722240332}
-  - component: {fileID: 5907701378230572829}
-  - component: {fileID: 5063065213095138626}
+  - component: {fileID: 205885386}
+  - component: {fileID: 205885385}
   m_Layer: 0
   m_Name: scroll_wheel
   m_TagString: Untagged
@@ -1712,7 +1716,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5907701378230572829
+--- !u!33 &205885386
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1720,7 +1724,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694722240331}
   m_Mesh: {fileID: 0}
---- !u!23 &5063065213095138626
+--- !u!23 &205885385
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1766,8 +1770,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694758492736}
-  - component: {fileID: 2143122688245795499}
-  - component: {fileID: 4307677358208564024}
+  - component: {fileID: 1659903934}
+  - component: {fileID: 1659903933}
   m_Layer: 0
   m_Name: scroll_wheel
   m_TagString: Untagged
@@ -1790,7 +1794,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2143122688245795499
+--- !u!33 &1659903934
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1798,7 +1802,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694758492751}
   m_Mesh: {fileID: 0}
---- !u!23 &4307677358208564024
+--- !u!23 &1659903933
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1844,8 +1848,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694861387830}
-  - component: {fileID: 5284744121283714510}
-  - component: {fileID: 8624247715319693346}
+  - component: {fileID: 1809552118}
+  - component: {fileID: 1809552117}
   m_Layer: 0
   m_Name: led
   m_TagString: Untagged
@@ -1868,7 +1872,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5284744121283714510
+--- !u!33 &1809552118
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1876,7 +1880,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694861387829}
   m_Mesh: {fileID: 0}
---- !u!23 &8624247715319693346
+--- !u!23 &1809552117
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1922,8 +1926,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225694903165607}
-  - component: {fileID: 5057901163073143966}
-  - component: {fileID: 850304319526587576}
+  - component: {fileID: 1489925426}
+  - component: {fileID: 1489925425}
   m_Layer: 0
   m_Name: trackpad
   m_TagString: Untagged
@@ -1946,7 +1950,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5057901163073143966
+--- !u!33 &1489925426
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1954,7 +1958,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225694903165606}
   m_Mesh: {fileID: 0}
---- !u!23 &850304319526587576
+--- !u!23 &1489925425
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2060,8 +2064,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225695016405105}
-  - component: {fileID: 3814130098014383469}
-  - component: {fileID: 8239241080537091927}
+  - component: {fileID: 790044744}
+  - component: {fileID: 790044743}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -2084,7 +2088,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3814130098014383469
+--- !u!33 &790044744
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2092,7 +2096,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225695016405104}
   m_Mesh: {fileID: 0}
---- !u!23 &8239241080537091927
+--- !u!23 &790044743
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2348,8 +2352,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225695109973459}
-  - component: {fileID: 565060652013274558}
-  - component: {fileID: 6195775110934068858}
+  - component: {fileID: 1298712813}
+  - component: {fileID: 1298712812}
   m_Layer: 0
   m_Name: lgrip
   m_TagString: Untagged
@@ -2372,7 +2376,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &565060652013274558
+--- !u!33 &1298712813
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2380,7 +2384,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225695109973458}
   m_Mesh: {fileID: 0}
---- !u!23 &6195775110934068858
+--- !u!23 &1298712812
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2456,8 +2460,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225695168506570}
-  - component: {fileID: 1939719057564848825}
-  - component: {fileID: 8280169056718094636}
+  - component: {fileID: 2060001142}
+  - component: {fileID: 2060001141}
   m_Layer: 0
   m_Name: button
   m_TagString: Untagged
@@ -2480,7 +2484,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1939719057564848825
+--- !u!33 &2060001142
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2488,7 +2492,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225695168506569}
   m_Mesh: {fileID: 0}
---- !u!23 &8280169056718094636
+--- !u!23 &2060001141
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2806,8 +2810,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225695474879525}
-  - component: {fileID: 4975935372713655466}
-  - component: {fileID: 7604331517828881346}
+  - component: {fileID: 354570056}
+  - component: {fileID: 354570055}
   m_Layer: 0
   m_Name: sys_button
   m_TagString: Untagged
@@ -2830,7 +2834,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4975935372713655466
+--- !u!33 &354570056
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2838,7 +2842,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225695474879524}
   m_Mesh: {fileID: 0}
---- !u!23 &7604331517828881346
+--- !u!23 &354570055
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3038,8 +3042,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225695686357675}
-  - component: {fileID: 8021494351213802352}
-  - component: {fileID: 8277320339271128620}
+  - component: {fileID: 1871696377}
+  - component: {fileID: 1871696376}
   m_Layer: 0
   m_Name: trackpad
   m_TagString: Untagged
@@ -3062,7 +3066,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8021494351213802352
+--- !u!33 &1871696377
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3070,7 +3074,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225695686357674}
   m_Mesh: {fileID: 0}
---- !u!23 &8277320339271128620
+--- !u!23 &1871696376
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3116,8 +3120,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225695697163906}
-  - component: {fileID: 8274003485177350063}
-  - component: {fileID: 7797427271387662787}
+  - component: {fileID: 1228602129}
+  - component: {fileID: 1228602128}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -3140,7 +3144,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8274003485177350063
+--- !u!33 &1228602129
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3148,7 +3152,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225695697163905}
   m_Mesh: {fileID: 0}
---- !u!23 &7797427271387662787
+--- !u!23 &1228602128
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3254,8 +3258,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225695751858406}
-  - component: {fileID: 931864716822186350}
-  - component: {fileID: 8927487851807244598}
+  - component: {fileID: 1333264374}
+  - component: {fileID: 1333264373}
   m_Layer: 0
   m_Name: sys_button
   m_TagString: Untagged
@@ -3278,7 +3282,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &931864716822186350
+--- !u!33 &1333264374
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3286,7 +3290,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225695751858405}
   m_Mesh: {fileID: 0}
---- !u!23 &8927487851807244598
+--- !u!23 &1333264373
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3544,8 +3548,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225695997471879}
-  - component: {fileID: 394376490768032898}
-  - component: {fileID: 3148019368298850010}
+  - component: {fileID: 1384851233}
+  - component: {fileID: 1384851232}
   m_Layer: 0
   m_Name: status
   m_TagString: Untagged
@@ -3568,7 +3572,7 @@ Transform:
   m_Father: {fileID: 5778225694582891238}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &394376490768032898
+--- !u!33 &1384851233
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3576,7 +3580,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225695997471878}
   m_Mesh: {fileID: 0}
---- !u!23 &3148019368298850010
+--- !u!23 &1384851232
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3652,8 +3656,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5778225696082922250}
-  - component: {fileID: 3271346199591220198}
-  - component: {fileID: 5060128864202502393}
+  - component: {fileID: 1945286514}
+  - component: {fileID: 1945286513}
   m_Layer: 0
   m_Name: trackpad_scroll_cut
   m_TagString: Untagged
@@ -3676,7 +3680,7 @@ Transform:
   m_Father: {fileID: 5778225694582895482}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3271346199591220198
+--- !u!33 &1945286514
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3684,7 +3688,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5778225696082922249}
   m_Mesh: {fileID: 0}
---- !u!23 &5060128864202502393
+--- !u!23 &1945286513
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
