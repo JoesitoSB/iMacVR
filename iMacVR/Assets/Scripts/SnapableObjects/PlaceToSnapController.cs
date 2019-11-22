@@ -8,6 +8,8 @@ public class PlaceToSnapController : MonoBehaviour
 {
     [SerializeField]
     private TypeSnapableObject typeCanSnap;
+    [SerializeField]
+    private Collision Collision;
     private SnapableObjectController objectPlaced;
     private SnapableObjectController temporalObjectPlaced;
 
@@ -25,7 +27,8 @@ public class PlaceToSnapController : MonoBehaviour
             //Verificar que sean del mismo tipo y cancelar gravedad
             if(objectPlaced.GetType() == typeCanSnap)
             {
-                Debug.Log("Entro aqui 2");
+                Debug.Log("Snaping object: " + objectPlaced.name);
+                objectPlaced.isInPlace = true;
                 objectPlaced.GetRigidbody().useGravity = false;
                 objectPlaced.GetRigidbody().isKinematic = true;
                 objectPlaced.GetRigidbody().velocity = new Vector3(0, 0, 0);
@@ -60,7 +63,15 @@ public class PlaceToSnapController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(!temporalObjectPlaced) temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+        if(temporalObjectPlaced)
+        {
+            if(!temporalObjectPlaced.isInPlace) temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+        }else
+        {
+            temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+        }
+
+        //if(!temporalObjectPlaced.isInPlace || !temporalObjectPlaced) temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
         if (temporalObjectPlaced)
         {
             temporalObjectPlaced.SetPlaceToSnap(this);

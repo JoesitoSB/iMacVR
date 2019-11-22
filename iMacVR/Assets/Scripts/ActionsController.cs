@@ -74,8 +74,9 @@ public class ActionsController : MonoBehaviour
         var joint = AddFixedJoint();
         var objectInHandRB = objectInHand.GetComponent<Rigidbody>();
         joint.connectedBody = objectInHandRB;
-        objectInHandRB.constraints = RigidbodyConstraints.None;
+        //objectInHandRB.constraints = RigidbodyConstraints.None;
         objectInHandRB.useGravity = true;
+        objectInHandRB.isKinematic = false;
         //Debug.LogError("Object in hand: " + objectInHand);
     }
 
