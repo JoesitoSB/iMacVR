@@ -11,40 +11,50 @@ public class OrientationValidator : MonoBehaviour
     [SerializeField]
     private ObjectOrientationChecker snapOr;
 
-
-    private void OnTriggerEnter(Collider other)
+    public void SetIdentifierValue(OrientationIdentifier _orIdentifier, bool _value = true)
     {
-        var orientationIdentifierObj = other.gameObject.GetComponent<OrientationIdentifier>();
-        if (orientationIdentifierObj)
+        if (_orIdentifier.getIdentifier() == id)
         {
-            if(orientationIdentifierObj.getIdentifier() == id)
-            {
-                snapOr.SetIdentifierValue(id, true);
-            }
+            snapOr.SetIdentifierValue(id, _value);
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        var orientationIdentifierObj = other.gameObject.GetComponent<OrientationIdentifier>();
-        if (orientationIdentifierObj)
-        {
-            if (orientationIdentifierObj.getIdentifier() == id)
-            {
-                snapOr.SetIdentifierValue(id, true);
-            }
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    var orientationIdentifierObj = other.gameObject.GetComponent<OrientationIdentifier>();
+    //    if (orientationIdentifierObj)
+    //    {
+    //        SetIdentifierValue(orientationIdentifierObj);
+    //        //if(orientationIdentifierObj.getIdentifier() == id)
+    //        //{
+    //        //    snapOr.SetIdentifierValue(id, true);
+    //        //}
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        var orientationIdentifierObj = other.gameObject.GetComponent<OrientationIdentifier>();
-        if (orientationIdentifierObj)
-        {
-            if (orientationIdentifierObj.getIdentifier() == id)
-            {
-                snapOr.SetIdentifierValue(id, false);
-            }
-        }
-    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    var orientationIdentifierObj = other.gameObject.GetComponent<OrientationIdentifier>();
+    //    if (orientationIdentifierObj)
+    //    {
+    //        SetIdentifierValue(orientationIdentifierObj);
+    //        //if (orientationIdentifierObj.getIdentifier() == id)
+    //        //{
+    //        //    snapOr.SetIdentifierValue(id, true);
+    //        //}
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    var orientationIdentifierObj = other.gameObject.GetComponent<OrientationIdentifier>();
+    //    if (orientationIdentifierObj)
+    //    {
+    //        SetIdentifierValue(orientationIdentifierObj, false);
+    //        //if (orientationIdentifierObj.getIdentifier() == id)
+    //        //{
+    //        //    snapOr.SetIdentifierValue(id, false);
+    //        //}
+    //    }
+    //}
 }

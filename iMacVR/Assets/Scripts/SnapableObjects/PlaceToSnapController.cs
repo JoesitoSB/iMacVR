@@ -9,6 +9,8 @@ public class PlaceToSnapController : MonoBehaviour
     [SerializeField]
     private TypeSnapableObject typeCanSnap;
     private SnapableObjectController objectPlaced;
+    private SnapableObjectController temporalObjectPlaced;
+
 
     public TypeSnapableObject GetType()
     {
@@ -47,8 +49,36 @@ public class PlaceToSnapController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+        if (temporalObjectPlaced)
+        {
+            temporalObjectPlaced.SetPlaceToSnap(this);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(!temporalObjectPlaced) temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+        if (temporalObjectPlaced)
+        {
+            temporalObjectPlaced.SetPlaceToSnap(this);
+        }
+    }
+
+
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Object exit; " + other.gameObject.name);
+        temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+        if (temporalObjectPlaced)
+        {
+            if (temporalObjectPlaced.GetType() == typeCanSnap)
+            {
+                Drop();
+                temporalObjectPlaced.SetPlaceToSnap(null);
+                temporalObjectPlaced.isInPlace = false;
+            }
+        }
     }
 }

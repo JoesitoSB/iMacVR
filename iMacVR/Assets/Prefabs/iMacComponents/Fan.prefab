@@ -464,6 +464,7 @@ GameObject:
   - component: {fileID: 1100731691}
   - component: {fileID: 1100731690}
   - component: {fileID: 7516326147444511829}
+  - component: {fileID: 5573302297851524935}
   m_Layer: 0
   m_Name: Fan
   m_TagString: Untagged
@@ -581,3 +582,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrientationsArray: 000000000100000002000000
+--- !u!65 &5573302297851524935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9092330094931815545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.795376, y: 5.2267075, z: 2.3964512}
+  m_Center: {x: -3.9492993, y: 38.603123, z: 4.0523295}

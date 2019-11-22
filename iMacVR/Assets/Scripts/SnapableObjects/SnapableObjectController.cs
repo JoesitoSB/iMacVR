@@ -20,7 +20,7 @@ public class SnapableObjectController : MonoBehaviour
     private ObjectOrientationChecker objectOrientationChecker;
     [SerializeField]
     private Rigidbody rb;
-    public bool isInPlace { private set; get; }
+    public bool isInPlace { set; get; }
 
     void Start()
     {
@@ -70,44 +70,50 @@ public class SnapableObjectController : MonoBehaviour
         isInPlace = false;
     }
 
-    //TODO Añadir metodo para que los objetos snapeables les quite el poder a los controles de moverlos en cuanto se snapean. O sea que los suelte en el instante que se snapean
-    private void OnTriggerEnter(Collider other)
+    public void SetPlaceToSnap(PlaceToSnapController _placeToSnapController)
     {
-        var _placeToSnap = other.GetComponent<PlaceToSnapController>();
-        if(_placeToSnap)
-        {
-            placeToSnap = _placeToSnap;
-        }
-        //else
-        //{
-        //    rb.constraints = RigidbodyConstraints.None;
-        //}
+        placeToSnap = _placeToSnapController;
     }
 
+    ////TODO Añadir metodo para que los objetos snapeables les quite el poder a los controles de moverlos en cuanto se snapean. O sea que los suelte en el instante que se snapean
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    var _placeToSnap = other.GetComponent<PlaceToSnapController>();
+    //    if(_placeToSnap)
+    //    {
+    //        Debug.Log("Is the place: " + (_placeToSnap.GetType() == type));
+    //        placeToSnap = _placeToSnap;
+    //    }
+    //    //else
+    //    //{
+    //    //    rb.constraints = RigidbodyConstraints.None;
+    //    //}
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        var place = other.GetComponent<PlaceToSnapController>();
-        if (place)
-        {
-            if (place.GetType() == type)
-            {
-                if (placeToSnap)
-                {
-                    placeToSnap.Drop();
-                    placeToSnap = null;
-                    isInPlace = false;
-                }
-            }
-        }
-        //if (placeToSnap)
-        //{
-        //    if (placeToSnap.gameObject == other.gameObject)
-        //    {
-        //        placeToSnap.Drop();
-        //        isInPlace = false;
-        //        placeToSnap = null;
-        //    }
-        //}
-    }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    var place = other.GetComponent<PlaceToSnapController>();
+    //    if (place)
+    //    {
+    //        if (place.GetType() == type)
+    //        {
+    //            if (placeToSnap)
+    //            {
+    //                placeToSnap.Drop();
+    //                placeToSnap = null;
+    //                isInPlace = false;
+    //            }
+    //        }
+    //    }
+    //    //if (placeToSnap)
+    //    //{
+    //    //    if (placeToSnap.gameObject == other.gameObject)
+    //    //    {
+    //    //        placeToSnap.Drop();
+    //    //        isInPlace = false;
+    //    //        placeToSnap = null;
+    //    //    }
+    //    //}
+    //}
 }

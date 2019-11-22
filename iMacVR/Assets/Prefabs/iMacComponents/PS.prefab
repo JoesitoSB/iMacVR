@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 7645084722352246962}
   - component: {fileID: 8888738026324114586}
   - component: {fileID: 6690930865250122434}
+  - component: {fileID: 8521651139984622817}
   m_Layer: 0
   m_Name: PS
   m_TagString: Untagged
@@ -398,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6703607a0ef8be74989d79db160d60fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  type: 4
   placeToSnap: {fileID: 0}
   objectOrientationChecker: {fileID: 6690930865250122434}
   rb: {fileID: 7645084722352246962}
@@ -414,4 +415,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b929010efaf07a145b8a3266bc153dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OrientationsArray: 06000000070000000800000009000000
+  OrientationsArray: 0d0000000e0000000f00000010000000
+--- !u!65 &8521651139984622817
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7452752160801663684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0015881304, y: 0.0002641893, z: 0.0011778909}
+  m_Center: {x: 0.0013213521, y: -0.00040797648, z: 0.0021785735}

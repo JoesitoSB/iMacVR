@@ -4,7 +4,11 @@
     {
         none = 0,
         Fan,
-        HDD
+        HDD,
+        Motherboard,
+        PowerSupply,
+        SpekearLeft,
+        SpekearRight
     }
     public enum OrientationId
     {
@@ -17,6 +21,17 @@
         HDDScrew1,
         HDDScrew2,
         HDDScrew3,
-        HDDScrew4
+        HDDScrew4,
+        MotherboardScrew1,
+        MotherboardScrew2,
+        MotherboardScrew3,
+        PowerSupplyScrew1,
+        PowerSupplyScrew2,
+        PowerSupplyScrew3,
+        PowerSupplyScrew4,
+        SpekearLeftScrew1,
+        SpekearLeftScrew2,
+        SpekearRightScrew1,
+        SpekearRightScrew2,
     }
 }
