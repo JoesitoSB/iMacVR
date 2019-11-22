@@ -17,8 +17,6 @@ public class ActionsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-
         //Check if the grab action is activated
         if (grabAction.GetLastStateDown(handType))
         {
@@ -99,8 +97,11 @@ public class ActionsController : MonoBehaviour
             fixedJoint.connectedBody = null;
             Destroy(fixedJoint);
             // 3
-            objectInHandRB.velocity = controllerPose.GetVelocity();
-            objectInHandRB.angularVelocity = controllerPose.GetAngularVelocity();
+            var x = controllerPose.GetVelocity().x * -1;
+            var y = controllerPose.GetVelocity().y;
+            var z = controllerPose.GetVelocity().z * -1;
+            objectInHandRB.velocity = new Vector3(x, y, z);
+            objectInHandRB.angularVelocity = controllerPose.GetAngularVelocity() * -1;
 
         }
 
