@@ -7,59 +7,52 @@ using UnityEngine.Audio;
 //[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
-    //
-    public ClaseAudio[] Canciones;
-    //
+    public CancionesClass[] Canciones;
 
-    public AudioClip[] Musica;
+    #region Variables Privadas
     private AudioSource source;
-    private int PistaActual;
-
-
-    #region public Text PistaTiempoTxt
-    public Text PistaNombreTxt;
     private int TiempoPista;
+    private int PistaActual;
     private int TiempoActualDePista;
     private float Segundos;
     private float Minutos;
-    public Image BotonPlayPause;
-    public Sprite SpritePausa;
-    public Sprite SpritePlay;
+    private float maxTime;
+    private float TiempoRestante;
+    private float TiempoActual;
+    private bool IsPlaying;
     #endregion
 
-    #region Barra de Tiempo
-    public Image TimeBar;
+    #region Textos
+    [Header("Textos")]
+    public Text PistaNombreTxt;
+    public Text ArtistaNombreTxt;
     public Text TiempoActual_Txt;
     public Text TiempoFaltante_Txt;
-    public float maxTime;
-    public float TiempoRestante;
-    public float TiempoActual;
-    public bool IsPlaying;
+    #endregion
+
+    #region Imagenes
+    [Header("Imagenes")]
+    public Image BotonPlayPause;
+    public Image AlbumArtIMG;
+    public Image TimeBar;
+    #endregion
+
+    #region Sprites
+    [Header ("Sprites")]
+    public Sprite SpritePausa;
+    public Sprite SpritePlay;
+    public Sprite DefaultAlbumArt;
     #endregion
     
-    #region Barra de Tiempo
-    public Image AlbumArtIMG;
-    public Sprite[] TodosLosAlbumArt;
-    #endregion
 
     private CambiarSprite _CambiarSprite = new CambiarSprite();
-
-    /*
-    private void Awake()
-    {
-        foreach(ClaseAudio _cancion in Canciones)
-        {
-            _cancion.source = gameObject.AddComponent<AudioSource>();
-            _cancion.source.clip = _cancion.clip;
-        }
-    }
-   */
 
     void Start()
     {
         TiempoRestante = maxTime;
         TiempoActual = 0;
-        PistaNombreTxt.text = Musica[0].name;
+        PistaNombreTxt.text = Canciones[0].Nombre;
+        ArtistaNombreTxt.text = Canciones[0].Artista;
         source = GetComponent<AudioSource>();
         CambiarArte(0);
     }
@@ -78,37 +71,22 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void CorrerTiempo()                                      //CORRE EL TIEMPO DE LA CANCION
+    public void CorrerTiempo()                                              //CORRE EL TIEMPO DE LA CANCION
     {
         TiempoRestante -= Time.deltaTime;
         TiempoActual += Time.deltaTime;
         TimeBar.fillAmount = TiempoRestante / maxTime;
     }
-
-    public void ReproducirMusica()                                  //REPRODUCE LA MUSICA
-    {
-        if (!source.isPlaying)
-        {
-            return;
-        }
-
-        PistaActual--;
-
-        if (PistaActual < 0)
-        {
-            PistaActual = Musica.Length - 1;
-        }
-    }
-
-    public void ProximaCancion()                                    //REPRODUCE LA SIGUIENTE CANCION
+    
+    public void ProximaCancion()                                            //REPRODUCE LA SIGUIENTE CANCION
     {
         source.Stop();
         PistaActual++;
-        if (PistaActual > Musica.Length - 1)
+        if (PistaActual > Canciones.Length - 1)
         {
             PistaActual = 0;
         }
-        Reproducir();
+        ReproducirCancion(PistaActual);
         _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
         IsPlaying = true;
         CambiarArte(PistaActual);
@@ -117,24 +95,24 @@ public class AudioManager : MonoBehaviour
         TiempoActual = 0;
     }
 
-    public void CancionAnterior()
+    public void CancionAnterior()                                           //REPRODUCE LA CANCION ANTERIOR
     {
         source.Stop();
         PistaActual--;
         if (PistaActual < 0)
         {
-            PistaActual = Musica.Length - 1;
+            PistaActual = Canciones.Length - 1;
         }
-        Reproducir();
+        ReproducirCancion(PistaActual);
         _CambiarSprite.ChangeSprite(BotonPlayPause, SpritePausa);
         IsPlaying = true;
         CambiarArte(PistaActual);
         maxTime = source.clip.length;
         TiempoRestante = maxTime;
         TiempoActual = 0;
-    }                               //REPRODUCE LA CANCION ANTERIOR
+    }
 
-    public void PararMusica()                                       //LE PONE PAUSA A LA MUSICA
+    public void PararMusica()                                               //LE PONE PAUSA A LA MUSICA
     {
         if (source.isPlaying)
         {
@@ -150,29 +128,27 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Reproducir()                                       //REPRODUCE LA CANCION
+    private void CambiarArte(int _cancionNum)                               //LE CAMBIA LA IMAGEN DEL ALBUM ART
     {
-        source.clip = Musica[PistaActual];
-        source.Play();
-        MostrarDatosDePista();
+        if(Canciones[_cancionNum].AlbumArt == null)
+        {
+            AlbumArtIMG.sprite = DefaultAlbumArt;
+        }
+
+        else
+        {
+            AlbumArtIMG.sprite = Canciones[_cancionNum].AlbumArt;
+        }
     }
-
-    private void CambiarArte(int CancionNum)
+    
+    public void ReproducirCancion(int _cancionNum)                          //REPRODUCE LA MUSICA
     {
-        AlbumArtIMG.sprite = TodosLosAlbumArt[CancionNum];
-    }
-
-    /*
-    public void Play ()
-    {
-        //ClaseAudio _
-    }*/
-
-    void MostrarDatosDePista()                                      //TOMA EL NOMBRE Y EL TAMAñO DE LA CANCION;
-    {
-        PistaNombreTxt.text = source.clip.name;
+        source.clip = Canciones[_cancionNum].Cancion;
+        PistaNombreTxt.text = Canciones[_cancionNum].Nombre;
+        ArtistaNombreTxt.text = Canciones[_cancionNum].Artista;
         TiempoPista = (int)source.clip.length;
-    }
+        source.Play();
+    }                       
 
     private string MostrarTiempoActualDePista(float _TiempoDePistaActual)   //MUESTRA EL TIEMPO DE LA CANCION
     {

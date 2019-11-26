@@ -81,6 +81,14 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Boolean Aggarrar
+        {
+            get
+            {
+                return SteamVR_Actions.default_Aggarrar;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get

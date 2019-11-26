@@ -37,6 +37,10 @@
       "requirement": "optional"
     },
     {
+      "name": "/actions/default/in/Aggarrar",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

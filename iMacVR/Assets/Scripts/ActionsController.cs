@@ -8,11 +8,11 @@ public class ActionsController : MonoBehaviour
     public SteamVR_Input_Sources handType;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean grabAction;
+    public SteamVR_Action_Boolean grabActionWithGrip;
 
     private GameObject collidingObject;
-    private GameObject objectInHand;
-
-    private SnapObjectController snapObjectController;
+    [HideInInspector]
+    public GameObject objectInHand;
 
 
     // Update is called once per frame
@@ -33,8 +33,6 @@ public class ActionsController : MonoBehaviour
             if (objectInHand)
             {
                 ReleaseObject();
-                //tengo la sospecha de que el error es por que esta linea de abajo solo se llama una sola vez cuando se 
-                if (snapObjectController) snapObjectController.ReleaseObject();
             }
         }
     }
@@ -51,8 +49,6 @@ public class ActionsController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         SetCollidingObject(other.gameObject);
-
-        snapObjectController = other.gameObject.GetComponent<SnapObjectController>();
     }
 
     public void OnTriggerStay(Collider other)
@@ -68,6 +64,7 @@ public class ActionsController : MonoBehaviour
         }
         collidingObject = null;
     }
+
 
     private void GrabObject()
     {

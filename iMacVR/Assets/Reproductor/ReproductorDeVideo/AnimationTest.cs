@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class AnimationTest : MonoBehaviour
 {
     public GameObject FotosMenu;
     public Animator AnimationController;
+    public VideoPlayer thisvideoplayer;
     string end;
 
     private void Update()
@@ -14,6 +16,9 @@ public class AnimationTest : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+
+        thisvideoplayer.loopPointReached += VideoFinished;
+
     }
 
     public void RunAnimation(string BoolName)
@@ -22,4 +27,10 @@ public class AnimationTest : MonoBehaviour
         FotosMenu.SetActive(true);
         AnimationController.SetBool(BoolName, !isOpen);
     }
+
+    public void VideoFinished(UnityEngine.Video.VideoPlayer vp)
+    {
+        AnimationController.SetBool("Abrir", false);
+    }
+
 }
