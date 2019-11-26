@@ -114,6 +114,7 @@ public class AudioManager : MonoBehaviour
 
     public void PararMusica()                                               //LE PONE PAUSA A LA MUSICA
     {
+        Debug.Log("asd");
         if (source.isPlaying)
         {
             source.Pause();

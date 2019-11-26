@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Screw
-  - Magnet
-  - Hole
+  - projectile
+  - FxTemporaire
+  - SnapTarget
   layers:
   - Default
   - TransparentFX
@@ -16,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - TeleportablePlace
+  - Finger
   - 
   - 
   - 
