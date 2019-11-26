@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8477c3a9af324ab9dbdc403ea0094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 7
+  id: 14
   snapOr: {fileID: 6690930865250122434}
 --- !u!1 &2826957047005648690
 GameObject:
@@ -89,7 +89,7 @@ Transform:
   m_LocalScale: {x: 0.0001, y: 0.00009999998, z: 0.00037124995}
   m_Children: []
   m_Father: {fileID: 5851907932250003671}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &7700868723548561690
 BoxCollider:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8477c3a9af324ab9dbdc403ea0094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 8
+  id: 15
   snapOr: {fileID: 6690930865250122434}
 --- !u!1 &3048505492037966747
 GameObject:
@@ -148,7 +148,7 @@ Transform:
   m_LocalScale: {x: 0.0001, y: 0.00009999998, z: 0.00037124995}
   m_Children: []
   m_Father: {fileID: 5851907932250003671}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4344305534584932876
 BoxCollider:
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8477c3a9af324ab9dbdc403ea0094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6
+  id: 14
   snapOr: {fileID: 6690930865250122434}
 --- !u!1 &5402397719915657184
 GameObject:
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8477c3a9af324ab9dbdc403ea0094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 9
+  id: 16
   snapOr: {fileID: 6690930865250122434}
 --- !u!1 &7167109025673592692
 GameObject:
@@ -314,9 +314,9 @@ Transform:
   m_LocalScale: {x: 10000, y: 10000, z: 10000}
   m_Children:
   - {fileID: 2486367586335431931}
-  - {fileID: 633918396516673471}
-  - {fileID: 2549092485521747847}
   - {fileID: 8573871506216526649}
+  - {fileID: 2549092485521747847}
+  - {fileID: 633918396516673471}
   - {fileID: 899958086405839263}
   m_Father: {fileID: 0}
   m_RootOrder: 0
