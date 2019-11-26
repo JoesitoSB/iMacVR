@@ -8,7 +8,8 @@
         Motherboard,
         PowerSupply,
         SpekearLeft,
-        SpekearRight
+        SpekearRight,
+        RetinaDisplay
     }
     public enum OrientationId
     {
@@ -33,5 +34,8 @@
         SpekearLeftScrew2,
         SpekearRightScrew1,
         SpekearRightScrew2,
+        RetinaDisplayPoint1,
+        RetinaDisplayPoint2,
+        RetinaDisplayPoint3
     }
 }
