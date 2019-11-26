@@ -38,6 +38,7 @@ public class MacBuilderManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("Created singleton");
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -52,6 +53,7 @@ public class MacBuilderManager : MonoBehaviour
 
     public void SetObjectPlacedValue(TypeSnapableObject type, bool _isPlaced)
     {
+        Debug.Log("Object in place: " + type);
         if(objectsInPlace.ContainsKey(type))
         {
             objectsInPlace[type] = _isPlaced;

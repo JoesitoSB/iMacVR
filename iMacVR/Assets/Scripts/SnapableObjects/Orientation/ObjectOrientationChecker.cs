@@ -29,7 +29,7 @@ public class ObjectOrientationChecker : MonoBehaviour
             }
         }
 
-        Debug.Log("Screws in position: " + orientedPoints.Count);
+        //Debug.Log("Screws in position: " + orientedPoints.Count);
 
         if(correctPoints == orientedPoints.Count)
         {
