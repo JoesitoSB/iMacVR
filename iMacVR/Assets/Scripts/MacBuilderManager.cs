@@ -22,6 +22,12 @@ public class MacBuilderManager : MonoBehaviour
     private GameObject SpekearRight_Ghost;
     [SerializeField]
     private Dictionary<TypeSnapableObject, bool> objectsInPlace = new Dictionary<TypeSnapableObject, bool>();
+    //private Dictionary<TypeSnapableObject, bool> retinaDisplayInPlace = new Dictionary<TypeSnapableObject, bool>();
+    public bool IsAllInPlace { private get; set; }
+    [SerializeField]
+    private GameObject RetinaDisplay_ObjectToPlace;
+
+    private bool canPlaceTheRetinaDisplay = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -40,6 +46,8 @@ public class MacBuilderManager : MonoBehaviour
         {
             objectsInPlace.Add(obj, false);
         }
+        RetinaDisplay_ObjectToPlace.SetActive(false);
+        //retinaDisplayInPlace.Add(TypeSnapableObject.RetinaDisplay, false);
     }
 
     public void SetObjectPlacedValue(TypeSnapableObject type, bool _isPlaced)
@@ -48,7 +56,10 @@ public class MacBuilderManager : MonoBehaviour
         {
             objectsInPlace[type] = _isPlaced;
         }
-
+        if(type == TypeSnapableObject.RetinaDisplay)
+        {
+            IsAllInPlace = true;
+        }
         switch(type)
         {
             case TypeSnapableObject.Fan:
@@ -69,6 +80,16 @@ public class MacBuilderManager : MonoBehaviour
             case TypeSnapableObject.SpekearRight:
                 SpekearRight_Ghost.SetActive(_isPlaced);
                 break;
+        }
+
+        if(!objectsInPlace.ContainsValue(false))
+        {
+            RetinaDisplay_ObjectToPlace.SetActive(true);
+            canPlaceTheRetinaDisplay = true;
+        }else
+        {
+            RetinaDisplay_ObjectToPlace.SetActive(false);
+            canPlaceTheRetinaDisplay = false;
         }
     }
 }

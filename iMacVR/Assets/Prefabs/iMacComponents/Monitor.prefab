@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 4671933088716365533}
   - component: {fileID: 908988672483037836}
   m_Layer: 0
-  m_Name: Retina
+  m_Name: Retina_PlaceToSnap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 126279000543237235}
   - component: {fileID: 126279000543237228}
   m_Layer: 0
-  m_Name: SpeakerRight_PlaceTiSnap
+  m_Name: SpeakerRight_PlaceToSnap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
