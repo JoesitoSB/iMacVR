@@ -32,10 +32,10 @@ public class PlaceToSnapController : MonoBehaviour
                 objectPlaced.GetRigidbody().useGravity = false;
                 objectPlaced.GetRigidbody().isKinematic = true;
                 objectPlaced.GetRigidbody().velocity = new Vector3(0, 0, 0);
-                //objectPlaced.GetRigidbody().constraints = RigidbodyConstraints.FreezeAll;
                 objectPlaced.gameObject.transform.position = transform.position;
                 objectPlaced.gameObject.transform.rotation = transform.rotation;
-                //Me quede quitando los constrains y volviendolo kinematic
+                //Notify the builder manager the piece is 
+                MacBuilderManager.instance.SetObjectPlacedValue(objectPlaced.GetType(), true);
             }
         }
     }
@@ -45,10 +45,11 @@ public class PlaceToSnapController : MonoBehaviour
         if(objectPlaced)
         {
             Debug.Log("Dropped object");
-            //objectPlaced.GetRigidbody().constraints = RigidbodyConstraints.None;
             objectPlaced.GetRigidbody().isKinematic = false;
             objectPlaced.GetRigidbody().useGravity = true;
+            MacBuilderManager.instance.SetObjectPlacedValue(objectPlaced.GetType(), false);
             objectPlaced = null;
+
         }
     }
 
@@ -70,8 +71,7 @@ public class PlaceToSnapController : MonoBehaviour
         {
             temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
         }
-
-        //if(!temporalObjectPlaced.isInPlace || !temporalObjectPlaced) temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+        
         if (temporalObjectPlaced)
         {
             temporalObjectPlaced.SetPlaceToSnap(this);
