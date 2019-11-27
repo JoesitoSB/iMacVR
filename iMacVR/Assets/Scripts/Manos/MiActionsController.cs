@@ -14,7 +14,7 @@ public class MiActionsController : MonoBehaviour
     public ActionsController Controller;
     private GameObject objectInHand;
 
-    private SnapObjectController snapObjectController;
+    //private SnapObjectController snapObjectController;
 
     public Mesh ManoAbierta;
     public Mesh ManoCerrado;

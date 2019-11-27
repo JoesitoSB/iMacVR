@@ -64,14 +64,14 @@ namespace Valve.VR
                 return SteamVR_Actions.default_SkeletonRightHand;
             }
         }
-        
+        /*
         public virtual SteamVR_Action_Boolean Squeeze
-        {
+        {/*
             get
             {
-                return SteamVR_Actions.default_Squeeze;
+                //return SteamVR_Actions.default_Squeeze;
             }
-        }
+        }*/
         
         public virtual SteamVR_Action_Boolean HeadsetOnHead
         {
