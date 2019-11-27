@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6941024666197816708}
   - component: {fileID: 3706445192815577469}
   m_Layer: 0
-  m_Name: Iphone 1
+  m_Name: Iphone LOwPoly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2092062316437622706
 Transform:
