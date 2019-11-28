@@ -121,6 +121,10 @@ public class MacBuilderManager : MonoBehaviour
         {
             RetinaDisplay_ObjectToPlace.SetActive(false);
             canPlaceTheRetinaDisplay = false;
+            CableHDD.SetActive(false);
+            CableLogic.SetActive(false);
+            CableRetinaDisplay.SetActive(false);
+            retinaDisplayFunction.TurnOff();
         }
     }
 
