@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 4798024111036712580}
   - component: {fileID: 4798024111766060306}
   - component: {fileID: 4798024111766060305}
+  - component: {fileID: 3611885731996028552}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -299,6 +300,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13499357, y: 0.07, z: 0.19}
   m_Center: {x: 0.0014104322, y: 0, z: 0}
+--- !u!114 &3611885731996028552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798024111076744317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5e546c81c1b414b89f6ef827e15f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRigTransform: {fileID: 4798024111076578515}
+  headTransform: {fileID: 4798643126291953865}
+  handType: 1
+  controllerPose: {fileID: 4828707511392286119}
+  teleportAction:
+    actionPath: /actions/default/in/Teleport
+    needsReinit: 0
+  teleportReticleOffset: {x: 0, y: 0.05, z: 0}
+  teleportMask:
+    serializedVersion: 2
+    m_Bits: 256
+  laserPrefab: {fileID: 4899422638533302780, guid: c44487070f69c40f78b56cd4678d4283,
+    type: 3}
+  teleportReticlePrefab: {fileID: 1639319533735882, guid: cfb27f702a3af894b918c1816366ee19,
+    type: 3}
 --- !u!1 &4798024111076841051
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +340,7 @@ GameObject:
   - component: {fileID: 4798024111036712581}
   - component: {fileID: 4798024111424948344}
   - component: {fileID: 4798024111424948343}
+  - component: {fileID: 4215695657226763462}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -427,6 +456,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13499357, y: 0.07, z: 0.19}
   m_Center: {x: 0.0014104322, y: 0, z: 0}
+--- !u!114 &4215695657226763462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798024111076841051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5e546c81c1b414b89f6ef827e15f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraRigTransform: {fileID: 4798024111076578515}
+  headTransform: {fileID: 4798643126291953865}
+  handType: 2
+  controllerPose: {fileID: 4828707510632000047}
+  teleportAction:
+    actionPath: /actions/default/in/Teleport
+    needsReinit: 0
+  teleportReticleOffset: {x: 0, y: 0.05, z: 0}
+  teleportMask:
+    serializedVersion: 2
+    m_Bits: 256
+  laserPrefab: {fileID: 4899422638533302780, guid: c44487070f69c40f78b56cd4678d4283,
+    type: 3}
+  teleportReticlePrefab: {fileID: 1639319533735882, guid: cfb27f702a3af894b918c1816366ee19,
+    type: 3}
 --- !u!1 &4798024111076853035
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +496,7 @@ GameObject:
   - component: {fileID: 4798024111073750537}
   - component: {fileID: 4798024111082420073}
   m_Layer: 0
-  m_Name: CamaraManos
+  m_Name: ManosFinal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,9 +509,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4798024111076853035}
-  m_LocalRotation: {x: -0, y: 0.90518206, z: -0, w: -0.425024}
+  m_LocalRotation: {x: 0, y: 0.9051835, z: -0, w: -0.42502108}
   m_LocalPosition: {x: -6.977138, y: 1.39, z: -2.52}
-  m_LocalScale: {x: 2.91124, y: 2.91124, z: 2.91124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4798024111076669473}
   - {fileID: 4798024111076596989}

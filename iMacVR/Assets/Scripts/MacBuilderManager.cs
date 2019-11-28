@@ -65,22 +65,22 @@ public class MacBuilderManager : MonoBehaviour
         switch(type)
         {
             case TypeSnapableObject.Fan:
-                Fan_Ghost.SetActive(_isPlaced);
+                Fan_Ghost.SetActive(!_isPlaced);
                 break;
             case TypeSnapableObject.HDD:
-                HDD_Ghost.SetActive(_isPlaced);
+                HDD_Ghost.SetActive(!_isPlaced);
                 break;
             case TypeSnapableObject.Motherboard:
-                Motherboard_Ghost.SetActive(_isPlaced);
+                Motherboard_Ghost.SetActive(!_isPlaced);
                 break;
             case TypeSnapableObject.PowerSupply:
-                PowerSupply_Ghost.SetActive(_isPlaced);
+                PowerSupply_Ghost.SetActive(!_isPlaced);
                 break;
             case TypeSnapableObject.SpekearLeft:
-                SpekearLeft_Ghost.SetActive(_isPlaced);
+                SpekearLeft_Ghost.SetActive(!_isPlaced);
                 break;
             case TypeSnapableObject.SpekearRight:
-                SpekearRight_Ghost.SetActive(_isPlaced);
+                SpekearRight_Ghost.SetActive(!_isPlaced);
                 break;
         }
 

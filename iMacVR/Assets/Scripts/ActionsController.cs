@@ -11,8 +11,7 @@ public class ActionsController : MonoBehaviour
     public SteamVR_Action_Boolean grabActionWithGrip;
 
     private GameObject collidingObject;
-    [HideInInspector]
-    public GameObject objectInHand;
+    private GameObject objectInHand;
 
 
     // Update is called once per frame
@@ -65,14 +64,18 @@ public class ActionsController : MonoBehaviour
         collidingObject = null;
     }
 
-
     private void GrabObject()
     {
         //Set the object in hand and clear the reference of the colliding object
         objectInHand = collidingObject;
         collidingObject = null;
         var joint = AddFixedJoint();
-        joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
+        var objectInHandRB = objectInHand.GetComponent<Rigidbody>();
+        joint.connectedBody = objectInHandRB;
+        //objectInHandRB.constraints = RigidbodyConstraints.None;
+        objectInHandRB.useGravity = true;
+        objectInHandRB.isKinematic = false;
+        //Debug.LogError("Object in hand: " + objectInHand);
     }
 
     private FixedJoint AddFixedJoint()
@@ -83,21 +86,32 @@ public class ActionsController : MonoBehaviour
         return fx;
     }
 
-    private void ReleaseObject()
+    public void ReleaseObject()
     {
         var fixedJoint = GetComponent<FixedJoint>();
-        var rb = GetComponent<Rigidbody>();
+        var objectInHandRB = objectInHand.GetComponent<Rigidbody>();
+        // 1
         if (fixedJoint)
         {
-            //Destroy the fixed joint
+            // 2
             fixedJoint.connectedBody = null;
             Destroy(fixedJoint);
-            //Add the velocity of the hand
-            rb.velocity = controllerPose.GetVelocity();
-            rb.angularVelocity = controllerPose.GetAngularVelocity();
+            // 3
+            var x = controllerPose.GetVelocity().x * -1;
+            var y = controllerPose.GetVelocity().y;
+            var z = controllerPose.GetVelocity().z * -1;
+            objectInHandRB.velocity = new Vector3(x, y, z);
+            objectInHandRB.angularVelocity = controllerPose.GetAngularVelocity() * -1;
 
         }
-        //Delete the object reference in the hand
+
+        var snapableObjectController = objectInHand.GetComponent<SnapableObjectController>();
+        if (snapableObjectController)
+        {
+            snapableObjectController.Snap();
+        }
+
+        // 4
         objectInHand = null;
     }
 }
