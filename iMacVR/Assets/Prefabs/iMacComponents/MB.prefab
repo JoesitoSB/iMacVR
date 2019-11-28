@@ -329,8 +329,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 166.93091, y: 116.949135, z: 34.347614}
-  m_Center: {x: -76.24846, y: 251.9541, z: 42.7474}
+  m_Size: {x: 166.93091, y: 99.472176, z: 34.347614}
+  m_Center: {x: -76.24846, y: 243.21555, z: 42.7474}
 --- !u!114 &7799655153081044350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,11 +352,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6692820644053292669}
     m_Modifications:
-    - target: {fileID: 3328577549795063418, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
-        type: 3}
-      propertyPath: m_Name
-      value: Tornillo
-      objectReference: {fileID: 0}
     - target: {fileID: 1759256527682208873, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -427,6 +422,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3328577549795063418, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
+        type: 3}
+      propertyPath: m_Name
+      value: Tornillo
+      objectReference: {fileID: 0}
     - target: {fileID: 2602221579154043191, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
         type: 3}
       propertyPath: m_IsTrigger
@@ -473,16 +473,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6692820644053292669}
     m_Modifications:
-    - target: {fileID: 1879595835375415425, guid: 7ec46f7579437ec489a1eb6faa4783f3,
-        type: 3}
-      propertyPath: m_Name
-      value: RAM
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879595835375415425, guid: 7ec46f7579437ec489a1eb6faa4783f3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7898906160732534339, guid: 7ec46f7579437ec489a1eb6faa4783f3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -553,6 +543,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1879595835375415425, guid: 7ec46f7579437ec489a1eb6faa4783f3,
+        type: 3}
+      propertyPath: m_Name
+      value: RAM
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec46f7579437ec489a1eb6faa4783f3, type: 3}
 --- !u!4 &7898906161942630053 stripped
@@ -568,11 +563,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6692820644053292669}
     m_Modifications:
-    - target: {fileID: 3328577549795063418, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
-        type: 3}
-      propertyPath: m_Name
-      value: Tornillo (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1759256527682208873, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -643,6 +633,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3328577549795063418, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
+        type: 3}
+      propertyPath: m_Name
+      value: Tornillo (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 2602221579154043191, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
         type: 3}
       propertyPath: m_IsTrigger
@@ -689,11 +684,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6692820644053292669}
     m_Modifications:
-    - target: {fileID: 3328577549795063418, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
-        type: 3}
-      propertyPath: m_Name
-      value: Tornillo (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 1759256527682208873, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -763,6 +753,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328577549795063418, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
+        type: 3}
+      propertyPath: m_Name
+      value: Tornillo (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2602221579154043191, guid: 7ec0e4cda06132a4d8ebfbdb89700eeb,
         type: 3}

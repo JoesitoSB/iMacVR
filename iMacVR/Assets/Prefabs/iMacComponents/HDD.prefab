@@ -168,8 +168,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.2635355, y: 14.199066, z: 1.2649312}
-  m_Center: {x: 12.326624, y: 35.417183, z: 4.5022655}
+  m_Size: {x: 9.873324, y: 13.706017, z: 1.2649312}
+  m_Center: {x: 12.388465, y: 35.26946, z: 4.5022655}
 --- !u!114 &9173840427577502114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,11 +249,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2976593980055376338}
     m_Modifications:
-    - target: {fileID: 7021089550693457559, guid: 619386f32e84754469f34156ca847d2e,
-        type: 3}
-      propertyPath: m_Name
-      value: SujetadorHDD
-      objectReference: {fileID: 0}
     - target: {fileID: 6153741419355485963, guid: 619386f32e84754469f34156ca847d2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -309,10 +304,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5755229649793584471, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755229649793584471, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755229649793584471, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021089550693457559, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_Name
+      value: SujetadorHDD
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569243440273010369, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569243440273010369, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569243440273010369, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6267047311101485153, guid: 619386f32e84754469f34156ca847d2e,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410568911941853938, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.7132248
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410568911941853938, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9446153
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410568911941853938, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.14338759
+      objectReference: {fileID: 0}
+    - target: {fileID: 8410568911941853938, guid: 619386f32e84754469f34156ca847d2e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0054339613
       objectReference: {fileID: 0}
     - target: {fileID: 2759834010360672553, guid: 619386f32e84754469f34156ca847d2e,
         type: 3}
@@ -346,11 +396,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2976593980055376338}
     m_Modifications:
-    - target: {fileID: 3985993133176388670, guid: cb42f1afab9172e458153663f9203e69,
-        type: 3}
-      propertyPath: m_Name
-      value: SujetadorHDD_2
-      objectReference: {fileID: 0}
     - target: {fileID: 2524333089096042542, guid: cb42f1afab9172e458153663f9203e69,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -406,12 +451,67 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 833803682468883739, guid: cb42f1afab9172e458153663f9203e69,
+    - target: {fileID: 5891100324333095336, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891100324333095336, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891100324333095336, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 261039992296960020, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 261039992296960020, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 261039992296960020, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3985993133176388670, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_Name
+      value: SujetadorHDD_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017977424208619595, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.6759212
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017977424208619595, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9526232
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017977424208619595, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.16203943
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017977424208619595, guid: cb42f1afab9172e458153663f9203e69,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0051439614
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596300807783421276, guid: cb42f1afab9172e458153663f9203e69,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7596300807783421276, guid: cb42f1afab9172e458153663f9203e69,
+    - target: {fileID: 833803682468883739, guid: cb42f1afab9172e458153663f9203e69,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
