@@ -84,7 +84,9 @@ public class MacBuilderManager : MonoBehaviour
                 break;
         }
 
-        if(!objectsInPlace.ContainsValue(false))
+        if(!Fan_Ghost.activeInHierarchy && !HDD_Ghost.activeInHierarchy && 
+            !Motherboard_Ghost.activeInHierarchy && !PowerSupply_Ghost.activeInHierarchy && 
+            !SpekearLeft_Ghost.activeInHierarchy && !SpekearRight_Ghost.activeInHierarchy)
         {
             RetinaDisplay_ObjectToPlace.SetActive(true);
             canPlaceTheRetinaDisplay = true;

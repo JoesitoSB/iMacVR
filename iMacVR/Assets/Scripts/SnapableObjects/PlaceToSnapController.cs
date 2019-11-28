@@ -114,4 +114,54 @@ public class PlaceToSnapController : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.LogWarning("Object col: " + other.gameObject.name + ", type of the current place to snap: " + typeCanSnap);
+        temporalObjectPlaced = other.gameObject.GetComponent<SnapableObjectController>();
+        if (temporalObjectPlaced)
+        {
+            temporalObjectPlaced.SetPlaceToSnap(this);
+        }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (temporalObjectPlaced)
+        {
+            if (temporalObjectPlaced.gameObject != other.gameObject)
+            {
+                var auxTemporalObjectPlaced = other.gameObject.GetComponent<SnapableObjectController>();
+                if (auxTemporalObjectPlaced)
+                {
+                    temporalObjectPlaced = auxTemporalObjectPlaced;
+                    temporalObjectPlaced.SetPlaceToSnap(this);
+                }
+            }
+        }
+        else
+        {
+            var auxTemporalObjectPlaced = other.gameObject.GetComponent<SnapableObjectController>();
+            if (auxTemporalObjectPlaced)
+            {
+                temporalObjectPlaced = auxTemporalObjectPlaced;
+                temporalObjectPlaced.SetPlaceToSnap(this);
+            }
+        }
+    }
+
+
+    private void OnCollisionExit(Collision other)
+    {
+        temporalObjectPlaced = other.gameObject.GetComponent<SnapableObjectController>();
+        if (temporalObjectPlaced)
+        {
+            if (temporalObjectPlaced.GetType() == typeCanSnap)
+            {
+                Drop();
+                temporalObjectPlaced.SetPlaceToSnap(null);
+                temporalObjectPlaced.isInPlace = false;
+            }
+        }
+    }
 }
