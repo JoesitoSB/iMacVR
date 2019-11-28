@@ -20,8 +20,11 @@ public class MiActionsController : MonoBehaviour
     public Mesh ManoCerrado;
     public Mesh ManoDedo;
     public Mesh ManoPinch;
+    public Mesh ManoFingure;
+    public BoxCollider HandTrigger;
 
     private string GrabState = "Free";
+    private bool IpadMode = false;
 
     // Update is called once per frame
     void Update()
@@ -39,7 +42,7 @@ public class MiActionsController : MonoBehaviour
         }
 
         //AGARRARPINCH
-        if (triggerAction.GetLastStateDown(handType) && GrabState == "Free")
+        if (triggerAction.GetLastStateDown(handType) && GrabState == "Free" && IpadMode == false)
         {
             CambiarManos(4);
         }
@@ -50,6 +53,49 @@ public class MiActionsController : MonoBehaviour
             CambiarManos(1);
         }
 
+        //Apuntar
+        if (triggerAction.GetLastStateDown(handType) && GrabState == "Free" && IpadMode == true)
+        {
+            CambiarManos(5);
+        }
+
+        //ABRIR MANO
+        if (triggerAction.GetLastStateUp(handType) && GrabState == "Fingure")
+        {
+            CambiarManos(1);
+        }
+    }
+
+
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "iPad")
+        {
+            IpadMode = true;
+        }
+        if(GrabState == "Pinch")
+        {
+            CambiarManos(5);
+        }
+
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "iPad")
+        {
+            IpadMode = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+
+        if (other.tag == "iPad")
+        {
+            IpadMode = false;
+        }
     }
 
     public void CambiarManos(int _Poscicion)
@@ -59,6 +105,7 @@ public class MiActionsController : MonoBehaviour
             case 1:
                 this.gameObject.GetComponent<MeshFilter>().sharedMesh = ManoAbierta;
                 GrabState = "Free";
+                HandTrigger.enabled = false;
                 break;
 
             case 2:
@@ -74,6 +121,12 @@ public class MiActionsController : MonoBehaviour
             case 4:
                 this.gameObject.GetComponent<MeshFilter>().sharedMesh = ManoPinch;
                 GrabState = "Pinch";
+                break;
+
+            case 5:
+                this.gameObject.GetComponent<MeshFilter>().sharedMesh = ManoFingure;
+                GrabState = "Fingure";
+                HandTrigger.enabled = true;
                 break;
         }
     }
