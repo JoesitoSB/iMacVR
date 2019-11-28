@@ -64,18 +64,31 @@ public class PlaceToSnapController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(temporalObjectPlaced)
-        {
-            if(!temporalObjectPlaced.isInPlace) temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
-        }else
-        {
-            temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
-        }
-        
         if (temporalObjectPlaced)
         {
-            temporalObjectPlaced.SetPlaceToSnap(this);
+            if (temporalObjectPlaced.gameObject != other.gameObject)
+            {
+                temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+                if(temporalObjectPlaced) temporalObjectPlaced.SetPlaceToSnap(this);
+            }
         }
+        else
+        {
+            temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+            if(temporalObjectPlaced) temporalObjectPlaced.SetPlaceToSnap(this);
+        }
+        //if (temporalObjectPlaced)
+        //{
+        //    if(!temporalObjectPlaced.isInPlace) temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+        //}else
+        //{
+        //    temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+        //}
+        
+        //if (temporalObjectPlaced)
+        //{
+        //    temporalObjectPlaced.SetPlaceToSnap(this);
+        //}
     }
 
 

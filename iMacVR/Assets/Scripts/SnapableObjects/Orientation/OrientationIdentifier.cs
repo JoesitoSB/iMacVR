@@ -25,10 +25,23 @@ public class OrientationIdentifier : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(orientationValidatorObj) orientationValidatorObj = other.gameObject.GetComponent<OrientationValidator>();
-        if (orientationValidatorObj)
+        //if(orientationValidatorObj) orientationValidatorObj = other.gameObject.GetComponent<OrientationValidator>();
+        //if (orientationValidatorObj)
+        //{
+        //    orientationValidatorObj.SetIdentifierValue(this);
+        //}
+        if(orientationValidatorObj)
         {
-            orientationValidatorObj.SetIdentifierValue(this);
+            if (orientationValidatorObj.gameObject != other.gameObject)
+            {
+                orientationValidatorObj = other.GetComponent<OrientationValidator>();
+                if(orientationValidatorObj) orientationValidatorObj.SetIdentifierValue(this);
+            }
+        }
+        else
+        {
+            orientationValidatorObj = other.GetComponent<OrientationValidator>();
+            if (orientationValidatorObj) orientationValidatorObj.SetIdentifierValue(this);
         }
     }
 

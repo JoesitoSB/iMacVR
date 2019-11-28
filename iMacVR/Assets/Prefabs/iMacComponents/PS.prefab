@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb8477c3a9af324ab9dbdc403ea0094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 14
+  id: 13
   snapOr: {fileID: 6690930865250122434}
 --- !u!1 &5402397719915657184
 GameObject:
