@@ -8,6 +8,7 @@ public class AnimationTest : MonoBehaviour
     public GameObject FotosMenu;
     public Animator AnimationController;
     public VideoPlayer thisvideoplayer;
+    public GameObject ReiniciarVideo;
     string end;
 
     private void Update()
@@ -29,7 +30,10 @@ public class AnimationTest : MonoBehaviour
 
     public void VideoFinished(UnityEngine.Video.VideoPlayer vp)
     {
-        AnimationController.SetBool("Abrir", false);
+
+        ReiniciarVideo.SetActive(true);
+        //
+        //AnimationController.SetBool("Abrir", false);
     }
 
 }

@@ -30,6 +30,6 @@ public class ReproducirVideo : MonoBehaviour
 
     public void CambiarTiempoVideo(float _TimeSkip)
     {
-        _CambiarTiempoVideo.AgregarTiempo(ReproductorDeVideo, _TimeSkip);
+        _CambiarTiempoVideo.AgregarTiempo(ReproductorDeVideo, _TimeSkip, 0f);
     }
 }
