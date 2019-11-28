@@ -7,6 +7,8 @@ TagManager:
   - projectile
   - FxTemporaire
   - SnapTarget
+  - Fingure
+  - iPad
   layers:
   - Default
   - TransparentFX

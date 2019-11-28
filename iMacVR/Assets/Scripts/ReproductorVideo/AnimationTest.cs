@@ -12,11 +12,10 @@ public class AnimationTest : MonoBehaviour
 
     private void Update()
     {
-        if(AnimationController.GetCurrentAnimatorStateInfo(0).IsName("CloseVideo") && AnimationController.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && this.gameObject.name == "VideoPlayer")
+        if (AnimationController.GetCurrentAnimatorStateInfo(0).IsName("CloseVideo") && AnimationController.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && this.gameObject.name == "VideoPlayer")
         {
             this.gameObject.SetActive(false);
         }
-
         thisvideoplayer.loopPointReached += VideoFinished;
 
     }

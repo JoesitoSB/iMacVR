@@ -50,11 +50,11 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         TiempoRestante = maxTime;
-        TiempoActual = 0;
-        PistaNombreTxt.text = Canciones[0].Nombre;
-        ArtistaNombreTxt.text = Canciones[0].Artista;
+        TiempoActual = 1;
+        PistaNombreTxt.text = Canciones[1].Nombre;
+        ArtistaNombreTxt.text = Canciones[1].Artista;
         source = GetComponent<AudioSource>();
-        CambiarArte(0);
+        CambiarArte(1);
     }
 
     void Update()
@@ -114,7 +114,6 @@ public class AudioManager : MonoBehaviour
 
     public void PararMusica()                                               //LE PONE PAUSA A LA MUSICA
     {
-        Debug.Log("asd");
         if (source.isPlaying)
         {
             source.Pause();
