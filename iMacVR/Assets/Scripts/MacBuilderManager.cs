@@ -26,6 +26,28 @@ public class MacBuilderManager : MonoBehaviour
     public bool IsAllInPlace { private get; set; }
     [SerializeField]
     private GameObject RetinaDisplay_ObjectToPlace;
+    [SerializeField]
+    private GameObject Fan;
+    [SerializeField]
+    private GameObject HDD;
+    [SerializeField]
+    private GameObject Motherboard;
+    [SerializeField]
+    private GameObject PowerSupply;
+    [SerializeField]
+    private GameObject SpekearLeft;
+    [SerializeField]
+    private GameObject SpekearRight;
+    [SerializeField]
+    private GameObject RetinaDisplay;
+    [SerializeField]
+    private GameObject CableHDD;
+    [SerializeField]
+    private GameObject CableLogic;
+    [SerializeField]
+    private GameObject CableRetinaDisplay;
+    [SerializeField]
+    private ImacFunctions retinaDisplayFunction;
 
     private bool canPlaceTheRetinaDisplay = false;
 
@@ -61,6 +83,9 @@ public class MacBuilderManager : MonoBehaviour
         if(type == TypeSnapableObject.RetinaDisplay)
         {
             IsAllInPlace = true;
+            RetinaDisplay_ObjectToPlace.SetActive(false);
+            Destroy(RetinaDisplay.GetComponent<Rigidbody>());
+            retinaDisplayFunction.TurnOn();
         }
         switch(type)
         {
@@ -90,10 +115,25 @@ public class MacBuilderManager : MonoBehaviour
         {
             RetinaDisplay_ObjectToPlace.SetActive(true);
             canPlaceTheRetinaDisplay = true;
-        }else
+            PipupModules();
+        }
+        else
         {
             RetinaDisplay_ObjectToPlace.SetActive(false);
             canPlaceTheRetinaDisplay = false;
         }
+    }
+
+    private void PipupModules()
+    {
+        Destroy(Fan.GetComponent<Rigidbody>());
+        Destroy(HDD.GetComponent<Rigidbody>());
+        Destroy(Motherboard.GetComponent<Rigidbody>());
+        Destroy(PowerSupply.GetComponent<Rigidbody>());
+        Destroy(SpekearLeft.GetComponent<Rigidbody>());
+        Destroy(SpekearRight.GetComponent<Rigidbody>());
+        CableHDD.SetActive(true);
+        CableLogic.SetActive(true);
+        CableRetinaDisplay.SetActive(true);
     }
 }
