@@ -267,10 +267,6 @@ MonoBehaviour:
   grabAction:
     actionPath: /actions/default/in/Grab
     needsReinit: 0
-  grabActionWithGrip:
-    actionPath: 
-    needsReinit: 1
-  objectInHand: {fileID: 0}
 --- !u!54 &4798024111766060306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -423,10 +419,6 @@ MonoBehaviour:
   grabAction:
     actionPath: /actions/default/in/Grab
     needsReinit: 0
-  grabActionWithGrip:
-    actionPath: 
-    needsReinit: 0
-  objectInHand: {fileID: 0}
 --- !u!54 &4798024111424948344
 Rigidbody:
   m_ObjectHideFlags: 0
