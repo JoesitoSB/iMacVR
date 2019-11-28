@@ -16,6 +16,7 @@ public class OrientationIdentifier : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.LogWarning("Object col: " + other.name + ", type of the current orientation ID: " + id);
         orientationValidatorObj = other.gameObject.GetComponent<OrientationValidator>();
         if (orientationValidatorObj)
         {
@@ -34,14 +35,22 @@ public class OrientationIdentifier : MonoBehaviour
         {
             if (orientationValidatorObj.gameObject != other.gameObject)
             {
-                orientationValidatorObj = other.GetComponent<OrientationValidator>();
-                if(orientationValidatorObj) orientationValidatorObj.SetIdentifierValue(this);
+                var auxOrientationValidatorObj = other.GetComponent<OrientationValidator>();
+                if (auxOrientationValidatorObj)
+                {
+                    orientationValidatorObj = auxOrientationValidatorObj;
+                    orientationValidatorObj.SetIdentifierValue(this);
+                }
             }
         }
         else
         {
-            orientationValidatorObj = other.GetComponent<OrientationValidator>();
-            if (orientationValidatorObj) orientationValidatorObj.SetIdentifierValue(this);
+            var auxOrientationValidatorObj = other.GetComponent<OrientationValidator>();
+            if (auxOrientationValidatorObj)
+            {
+                orientationValidatorObj = auxOrientationValidatorObj;
+                orientationValidatorObj.SetIdentifierValue(this);
+            }
         }
     }
 

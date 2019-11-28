@@ -21,22 +21,22 @@ public class PlaceToSnapController : MonoBehaviour
 
     public void Snap(SnapableObjectController _objectToPlace)
     {
+        Debug.Log("SNAP PROCES");
+        Debug.Log("Is any obj placed: " + objectPlaced);
+        Debug.Log("Type can snap: " + typeCanSnap);
+        Debug.Log("Type os the object to snap: " + _objectToPlace.GetType());
         if(!objectPlaced && typeCanSnap == _objectToPlace.GetType())//Check is is not set a objectPlaced and if it is of the same type
         {
             objectPlaced = _objectToPlace;
-            //Verificar que sean del mismo tipo y cancelar gravedad
-            if(objectPlaced.GetType() == typeCanSnap)
-            {
-                Debug.Log("Snaping object: " + objectPlaced.name);
-                objectPlaced.isInPlace = true;
-                objectPlaced.GetRigidbody().useGravity = false;
-                objectPlaced.GetRigidbody().isKinematic = true;
-                objectPlaced.GetRigidbody().velocity = new Vector3(0, 0, 0);
-                objectPlaced.gameObject.transform.position = transform.position;
-                objectPlaced.gameObject.transform.rotation = transform.rotation;
-                //Notify the builder manager the piece is 
-                MacBuilderManager.instance.SetObjectPlacedValue(objectPlaced.GetType(), true);
-            }
+            Debug.Log("Snaping object: " + objectPlaced.name);
+            objectPlaced.isInPlace = true;
+            objectPlaced.GetRigidbody().useGravity = false;
+            objectPlaced.GetRigidbody().isKinematic = true;
+            objectPlaced.GetRigidbody().velocity = new Vector3(0, 0, 0);
+            objectPlaced.gameObject.transform.position = transform.position;
+            objectPlaced.gameObject.transform.rotation = transform.rotation;
+            //Notify the builder manager the piece is 
+            MacBuilderManager.instance.SetObjectPlacedValue(objectPlaced.GetType(), true);
         }
     }
 
@@ -55,6 +55,7 @@ public class PlaceToSnapController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.LogWarning("Object col: " + other.name + ", type of the current place to snap: " + typeCanSnap);
         temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
         if (temporalObjectPlaced)
         {
@@ -68,14 +69,22 @@ public class PlaceToSnapController : MonoBehaviour
         {
             if (temporalObjectPlaced.gameObject != other.gameObject)
             {
-                temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
-                if(temporalObjectPlaced) temporalObjectPlaced.SetPlaceToSnap(this);
+                var auxTemporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+                if (auxTemporalObjectPlaced)
+                {
+                    temporalObjectPlaced = auxTemporalObjectPlaced;
+                    temporalObjectPlaced.SetPlaceToSnap(this);
+                }
             }
         }
         else
         {
-            temporalObjectPlaced = other.GetComponent<SnapableObjectController>();
-            if(temporalObjectPlaced) temporalObjectPlaced.SetPlaceToSnap(this);
+            var auxTemporalObjectPlaced = other.GetComponent<SnapableObjectController>();
+            if (auxTemporalObjectPlaced)
+            {
+                temporalObjectPlaced = auxTemporalObjectPlaced;
+                temporalObjectPlaced.SetPlaceToSnap(this);
+            }
         }
         //if (temporalObjectPlaced)
         //{

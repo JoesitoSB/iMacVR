@@ -47,9 +47,12 @@ public class SnapableObjectController : MonoBehaviour
 
     public void Snap()
     {
+        Debug.Log("Is in place: " + isInPlace);
+        Debug.Log("Is in oriented: " + objectOrientationChecker.IsOriented);
+        Debug.Log("Is the place to snap: " + placeToSnap);
         if (!isInPlace && placeToSnap && objectOrientationChecker.IsOriented)
         {
-            //Debug.Log("Entro aqui 3");
+            Debug.Log("Snaping obj: " + type);
             //isInPlace = true;
             placeToSnap.Snap(this);
         }else
